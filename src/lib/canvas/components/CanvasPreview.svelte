@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { videos } from '$lib/canvas/data/videos';
 	import { canvas } from '$lib/canvas/state/canvas.svelte';
-	import SourcePicker from './controls/SourcePicker.svelte';
 
     import { tick } from 'svelte';
 
@@ -36,7 +35,6 @@ $effect(() => {
 	}
 </script>
 
-<SourcePicker />
 
 <div class="preview">
 	<div class="video">
