@@ -1,18 +1,26 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { createCanvasRenderer } from '$lib/canvas/renderer';
+	import { createScene } from '$lib/canvas/scene';
 
 	let canvas: HTMLCanvasElement;
 
 	onMount(() => {
-		const ctx = canvas.getContext('2d');
-		if (!ctx) return;
+		const scene = createScene();
+		const renderer = createCanvasRenderer(canvas, scene);
 
-		ctx.fillStyle = 'oklch(15% 0.02 260)';
-		ctx.fillRect(0, 0, canvas.width, canvas.height);
+		const handleResize = () => {
+			renderer.resize();
+		};
 
-		ctx.fillStyle = 'oklch(90% 0.02 260)';
-		ctx.font = '32px sans-serif';
-		ctx.fillText('Canvas Preview', 48, 64);
+		window.addEventListener('resize', handleResize);
+
+		renderer.start();
+
+		return () => {
+			window.removeEventListener('resize', handleResize);
+			renderer.stop();
+		};
 	});
 </script>
 
@@ -21,11 +29,7 @@
 </svelte:head>
 
 <main>
-	<canvas
-		bind:this={canvas}
-		width="1280"
-		height="720"
-	></canvas>
+	<canvas bind:this={canvas}></canvas>
 </main>
 
 <style>
@@ -37,5 +41,6 @@
 		display: block;
 		width: 100%;
 		height: auto;
+		aspect-ratio: 16 / 9;
 	}
 </style>
