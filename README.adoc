@@ -1,0 +1,299 @@
+= Canvas Preview
+
+A small interactive tool for previewing finished visuals in a Spotify Canvas-style environment.
+
+Canvas Preview is designed around a simple workflow:
+
+[source,text]
+----
+Video Source
+     ↓
+Canvas Preview
+     +
+Track / Audio Settings
+     ↓
+Check how the visual works with music
+----
+
+Instead of editing videos again, the goal is to quickly combine existing visual loops with different tracks and check the result in a mobile Canvas-like preview.
+
+== Current Status
+
+[IMPORTANT]
+====
+Prototype / active development
+====
+
+As of 2026-08-12, the core preview structure is working.
+
+=== Implemented
+
+- SvelteKit-based Canvas Preview page
+- GitHub Pages deployment
+- 9:16 mobile preview
+- Real H.264 MP4 video playback
+- Video Source Library
+- Multiple video source selection
+- Source-specific Title / Artist / BPM
+- Shared Canvas State
+- Play / Pause
+- Video Audio playback
+- Video mute / volume control direction
+- Separated Preview, Source Library and Controls components
+- TypeScript-based video source data
+
+A video can currently be selected from the Source Library and immediately displayed in the main preview.
+
+== Concept
+
+The project is not intended to be a video editor.
+
+The videos are assumed to already be finished loops or hard cuts.
+
+The tool focuses on the final combination:
+
+[source,text]
+----
+Finished Visual
+       +
+Music
+       +
+Canvas UI
+       ↓
+Quick Preview / Verification
+----
+
+This makes it possible to reuse existing visual work as a small Canvas library and quickly test different combinations.
+
+== Current Preview
+
+The preview uses a mobile 9:16 layout.
+
+[source,text]
+----
++----------------------+
+|                      |
+|       VIDEO          |
+|                      |
+|                      |
+|   Track Title        |
+|   Artist Name        |
+|                      |
+| ------●------------- |
++----------------------+
+----
+
+The current prototype already supports:
+
+- Selecting a video source
+- Playing and pausing the video
+- Keeping the current playback position when pausing
+- Using the MP4's built-in audio
+- Displaying Title / Artist information
+- Switching between multiple video sources
+
+== Source Library
+
+Video sources are stored as typed data rather than being hard-coded into the UI.
+
+[source,typescript]
+----
+export interface VideoSource {
+    id: string;
+    title: string;
+    artist: string;
+    video: string;
+    defaultBpm: number;
+    recommendedBars: number;
+    tags: string[];
+}
+----
+
+Each source contains its own metadata.
+
+The source ID is stored in Canvas State and the full `VideoSource` is resolved from `videos.ts`.
+
+[source,text]
+----
+Selected Video ID
+      ↓
+videos.ts
+      ↓
+VideoSource
+      ├── video
+      ├── title
+      ├── artist
+      ├── defaultBpm
+      └── recommendedBars
+----
+
+This structure is intended to scale into a larger visual library.
+
+== Planned
+
+The next development stages focus on making the prototype useful as an actual workflow tool.
+
+=== Audio / Timing
+
+- Audio Upload
+- BPM Control
+- Loop Length Recommendation
+- Playback Rate
+- Beat Grid
+- Playhead
+- Video / Audio Sync checking
+
+=== Canvas UI
+
+- Spotify-style overlay refinement
+- Expanded / Compact / Hidden states
+- Title Marquee
+- Progress Bar
+- Safe Zone
+- Touch interaction
+
+=== Source Library
+
+The Source Library is intentionally designed so additional discovery features can be added later.
+
+Possible future features:
+
+- BPM Range Filter
+- BPM Sorting
+- Genre Filter
+- Visual Tag Filter
+- Multiple Tag Filtering
+- Source Search
+- Random Match
+
+These are not part of the current implementation.
+
+=== Workflow
+
+- Preset saving
+- Random Match
+- Source-specific defaults
+- Preserve user-customized settings when switching sources
+- Multiple Canvas comparison
+- Canvas Export
+
+== Architecture
+
+The application is structured around a shared Canvas State.
+
+[source,mermaid]
+----
+graph TD
+    USER[User]
+
+    USER --> LIBRARY[Source Library]
+    USER --> CONTROLS[Controls]
+
+    LIBRARY --> STATE[Canvas State]
+    CONTROLS --> STATE
+
+    STATE --> LOGIC[Utility Logic]
+    LOGIC --> STATE
+
+    STATE --> PREVIEW[Preview]
+----
+
+The main principles are:
+
+- Source Library selects a Video ID.
+- Controls modify the user's current settings.
+- Canvas State stores the current preview state.
+- Utility modules handle BPM, Loop and Media calculations.
+- Preview visualizes the current state.
+- Source defaults should not blindly overwrite user-customized values.
+
+== Tech Stack
+
+- SvelteKit
+- TypeScript
+- HTMLVideoElement
+- HTMLAudioElement
+- Web Audio API
+- CSS
+- LocalStorage
+
+Video sources use H.264 MP4 as the primary format.
+
+== Development Status
+
+[cols="1,3"]
+|===
+|Area |Status
+
+|Project setup
+|Complete
+
+|GitHub Pages deployment
+|Complete
+
+|9:16 Preview
+|Complete
+
+|Real video playback
+|Complete
+
+|Video Source Library
+|Working prototype
+
+|Source selection
+|Working prototype
+
+|Canvas State
+|Implemented
+
+|Title / Artist
+|Implemented
+
+|Play / Pause
+|Implemented
+
+|MP4 Audio
+|Implemented
+
+|Audio Upload
+|Planned
+
+|BPM / Loop Recommendation
+|Planned / partially structured
+
+|Beat Grid
+|Planned
+
+|Canvas UI states
+|Planned
+
+|Safe Zone
+|Planned
+
+|Presets
+|Planned
+
+|Library filtering / sorting
+|Planned
+|===
+
+== Direction
+
+Canvas Preview aims to become a small working tool for creators:
+
+[source,text]
+----
+Browse visual assets
+        ↓
+Choose a Canvas
+        ↓
+Load / enter track information
+        ↓
+Match visual + music
+        ↓
+Check Canvas presentation
+----
+
+The project intentionally stays smaller than a video editor.
+
+The focus is on **combining finished visual assets with music and quickly verifying the result in a Canvas-like environment**.
