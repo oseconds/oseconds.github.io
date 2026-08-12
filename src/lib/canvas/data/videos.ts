@@ -1,11 +1,15 @@
 export interface VideoSource {
-	id: string;
-	title: string;
-	artist: string;
-	video: string;
-	defaultBpm: number;
-	recommendedBars: number;
-	tags: string[];
+    id: string;
+    title: string;
+    artist: string;
+    video: string;
+
+    bpm: number | null;
+    bpmConfidence: number | null;
+    beats: number[];
+
+    recommendedBars: number;
+    tags: string[];
 }
 
 export const videos: VideoSource[] = [
