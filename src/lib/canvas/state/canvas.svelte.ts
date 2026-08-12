@@ -18,12 +18,13 @@ export interface CanvasState {
 
 	safeZone: boolean;
 	isPlaying: boolean;
+    videoMuted: boolean;
 }
 
 export const canvas = $state<CanvasState>({
-	selectedVideo: null,
+	selectedVideo: null as string | null,
 
-	title: '135bpm uk garage',
+	title: 'default title test',
 	artist: '0seconds',
 
 	audio: null,
@@ -37,5 +38,6 @@ export const canvas = $state<CanvasState>({
 	previewMode: 'expanded',
 
 	safeZone: false,
-	isPlaying: false
+	isPlaying: false,
+    videoMuted: false
 });

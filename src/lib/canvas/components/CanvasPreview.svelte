@@ -1,18 +1,43 @@
 <script lang="ts">
+	import { videos } from '$lib/canvas/data/videos';
 	import { canvas } from '$lib/canvas/state/canvas.svelte';
-    canvas.selectedVideo = 'media/Leftfield-Bass.mp4';
+	import SourcePicker from './controls/SourcePicker.svelte';
+
+    let videoElement = $state<HTMLVideoElement>();
+
+	const selectedVideo = $derived(
+		videos.find((video) => video.id === canvas.selectedVideo)
+	);
+
+	function togglePlayback() {
+		if (!videoElement) return;
+
+		if (videoElement.paused) {
+			videoElement.play();
+			canvas.isPlaying = true;
+		} else {
+			videoElement.pause();
+			canvas.isPlaying = false;
+		}
+	}
 </script>
+
+<SourcePicker />
 
 <div class="preview">
 	<div class="video">
 		{#if canvas.selectedVideo}
 			<video
-				src={canvas.selectedVideo}
-				autoplay
-				muted
-				loop
-				playsinline
-			></video>
+                bind:this={videoElement}
+                src={selectedVideo?.video}
+                loop
+                playsinline
+                muted={canvas.videoMuted}
+                onplay={() => (canvas.isPlaying = true)}
+                onpause={() => (canvas.isPlaying = false)}
+            >
+                <track kind="captions" />
+            </video>
 		{:else}
 			<div class="placeholder">
 				No video selected
@@ -25,6 +50,18 @@
 			<div class="title">{canvas.title}</div>
 			<div class="artist">{canvas.artist}</div>
 		</div>
+
+        <div class="controls">
+            <button type="button" onclick={togglePlayback}>
+                {canvas.isPlaying ? '❚❚ Pause' : '▶ Play'}
+            </button>
+            <button
+                type="button"
+                onclick={() => (canvas.videoMuted = !canvas.videoMuted)}
+            >
+                {canvas.videoMuted ? '🔇' : '🔊'}
+            </button>
+        </div>
 
 		<div class="progress">
 			<div class="progress-bar"></div>
@@ -65,14 +102,28 @@
 	}
 
 	.overlay {
+        
 		position: absolute;
 		inset: 0;
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;
 		padding: 24px;
-		pointer-events: none;
 	}
+
+    .controls {
+        margin-bottom: 12px;
+    }
+
+    .controls button {
+        padding: 8px 14px;
+        border: 0;
+        border-radius: 999px;
+        background: white;
+        color: black;
+        font-size: 13px;
+        cursor: pointer;
+    }
 
 	.track-info {
 		margin-bottom: 18px;
