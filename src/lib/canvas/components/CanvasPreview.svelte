@@ -3,7 +3,21 @@
 	import { canvas } from '$lib/canvas/state/canvas.svelte';
 	import SourcePicker from './controls/SourcePicker.svelte';
 
-    let videoElement = $state<HTMLVideoElement>();
+    import { tick } from 'svelte';
+
+let videoElement = $state<HTMLVideoElement>();
+
+$effect(() => {
+    const videoId = canvas.selectedVideo;
+
+    if (!videoId || !videoElement) return;
+
+    tick().then(() => {
+        videoElement?.play().catch(() => {
+            canvas.isPlaying = false;
+        });
+    });
+});
 
 	const selectedVideo = $derived(
 		videos.find((video) => video.id === canvas.selectedVideo)
@@ -57,9 +71,11 @@
             </button>
             <button
                 type="button"
-                onclick={() => (canvas.videoMuted = !canvas.videoMuted)}
+                onclick={() => {
+                    canvas.videoMuted = !canvas.videoMuted;
+                }}
             >
-                {canvas.videoMuted ? '🔇' : '🔊'}
+                {canvas.videoMuted ? '🔇 Muted' : '🔊 Sound'}
             </button>
         </div>
 
