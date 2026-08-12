@@ -1,27 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { createCanvasRenderer } from '$lib/canvas/renderer';
-	import { createScene } from '$lib/canvas/scene';
-
-	let canvas: HTMLCanvasElement;
-
-	onMount(() => {
-		const scene = createScene();
-		const renderer = createCanvasRenderer(canvas, scene);
-
-		const handleResize = () => {
-			renderer.resize();
-		};
-
-		window.addEventListener('resize', handleResize);
-
-		renderer.start();
-
-		return () => {
-			window.removeEventListener('resize', handleResize);
-			renderer.stop();
-		};
-	});
+	import CanvasPreview from '$lib/canvas/components/CanvasPreview.svelte';
 </script>
 
 <svelte:head>
@@ -29,18 +7,14 @@
 </svelte:head>
 
 <main>
-	<canvas bind:this={canvas}></canvas>
+	<CanvasPreview />
 </main>
 
 <style>
 	main {
-		width: 100%;
-	}
-
-	canvas {
-		display: block;
-		width: 100%;
-		height: auto;
-		aspect-ratio: 16 / 9;
+		min-height: 100vh;
+		display: grid;
+		place-items: center;
+		padding: 24px;
 	}
 </style>
