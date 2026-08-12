@@ -42,7 +42,8 @@ export function createCanvasRenderer(
 
 		previousTime = timestamp;
 
-		scene.render(ctx, time, deltaTime);
+		scene.update(time, deltaTime);
+        scene.render(ctx);
 
 		animationFrame = requestAnimationFrame(render);
 	};
