@@ -125,16 +125,11 @@
     }
 
     .card {
-        display: block;
-        width: 100%;
-        padding: 0;
+        position: relative;
+        overflow: hidden;
         border: 1px solid #242424;
         border-radius: 10px;
-        overflow: hidden;
         background: #141414;
-        color: white;
-        text-align: left;
-        cursor: pointer;
         transition:
             border-color 120ms ease,
             transform 120ms ease;
@@ -147,6 +142,31 @@
 
     .card.selected {
         border-color: white;
+    }
+
+    .card-main {
+        display: block;
+        width: 100%;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: white;
+        text-align: left;
+        cursor: pointer;
+    }
+
+    .spotify {
+        display: block;
+        padding: 8px 10px;
+        background: #141414;
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 10px;
+        text-decoration: none;
+    }
+
+    .spotify:hover {
+        color: white;
+        text-decoration: underline;
     }
 
     .thumbnail {
@@ -195,18 +215,6 @@
 	margin-top: 3px;
 	color: rgba(255, 255, 255, 0.65);
 	font-size: 10px;
-}
-
-    .spotify {
-        display: inline-block;
-        margin-top: 6px;
-        color: rgba(255, 255, 255, 0.85);
-        font-size: 10px;
-        text-decoration: none;
-    }
-
-    .spotify:hover {
-        text-decoration: underline;
     }
 
     .tabs {

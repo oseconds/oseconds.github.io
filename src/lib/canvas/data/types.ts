@@ -8,6 +8,7 @@ export interface VideoSource {
 	id: string;
 	title: string;
 	artist?: string;
+	artwork?: string;
 	video: string;
 
 	bpm?: number;
