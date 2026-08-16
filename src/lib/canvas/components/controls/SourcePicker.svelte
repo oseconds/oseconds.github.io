@@ -17,17 +17,16 @@
 	);
 
 	function selectVideo(id: string) {
-		const video = videos.find((item) => item.id === id);
+	const video = videos.find((item) => item.id === id);
 
-		if (!video) return;
+	if (!video) return;
 
-		canvas.selectedVideo = video.id;
-		canvas.title = video.title;
-
-		canvas.artist = video.artist ?? '';
-
-		canvas.bpm = video.bpm ?? 0;
-	}
+	canvas.selectedVideo = video.id;
+	canvas.title = video.title;
+	canvas.artist = video.artist ?? '';
+	canvas.spotifyUrl = video.spotifyUrl ?? '';
+	canvas.bpm = video.bpm ?? 0;
+    }
 </script>
 
 <div class="library">

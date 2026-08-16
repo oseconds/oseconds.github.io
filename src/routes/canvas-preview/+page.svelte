@@ -1,11 +1,10 @@
 <script lang="ts">
 	import CanvasPreview from '$lib/canvas/components/CanvasPreview.svelte';
 	import SourcePicker from '$lib/canvas/components/controls/SourcePicker.svelte';
-</script>
+	import Controls from '$lib/canvas/components/controls/Controls.svelte';
 
-<svelte:head>
-	<title>Canvas Preview</title>
-</svelte:head>
+	let togglePreviewPlayback = $state<() => void>(() => {});
+</script>
 
 <div class="page">
 	<header class="header">
@@ -24,18 +23,24 @@
 		</aside>
 
 		<section class="preview-panel">
-			<CanvasPreview />
-		</section>
+            <CanvasPreview
+                onRegisterPlayback={(callback) => {
+                    togglePreviewPlayback = callback;
+                }}
+            />
+        </section>
 
 		<aside class="controls-panel">
-			<div class="panel-header">
-				<h2>Controls</h2>
-			</div>
+            <div class="panel-header">
+                <h2>Controls</h2>
+            </div>
 
-			<div class="controls-content">
-				<!-- Controls -->
-			</div>
-		</aside>
+            <div class="controls-content">
+                <Controls
+                    onTogglePlayback={togglePreviewPlayback}
+                />
+            </div>
+        </aside>
 	</main>
 </div>
 

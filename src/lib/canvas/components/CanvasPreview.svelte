@@ -1,22 +1,16 @@
 <script lang="ts">
 	import { videos } from '$lib/canvas/data/videos';
 	import { canvas } from '$lib/canvas/state/canvas.svelte';
+	import { tick } from 'svelte';
 
-    import { tick } from 'svelte';
+	let {
+		onRegisterPlayback
+	}: {
+		onRegisterPlayback?: (callback: () => void) => void;
+	} = $props();
 
-let videoElement = $state<HTMLVideoElement>();
-
-$effect(() => {
-    const videoId = canvas.selectedVideo;
-
-    if (!videoId || !videoElement) return;
-
-    tick().then(() => {
-        videoElement?.play().catch(() => {
-            canvas.isPlaying = false;
-        });
-    });
-});
+	let videoElement = $state<HTMLVideoElement>();
+	let audioElement = $state<HTMLAudioElement>();
 
 	const selectedVideo = $derived(
 		videos.find((video) => video.id === canvas.selectedVideo)
@@ -26,14 +20,46 @@ $effect(() => {
 		if (!videoElement) return;
 
 		if (videoElement.paused) {
-			videoElement.play();
-			canvas.isPlaying = true;
+			const videoPlay = videoElement.play();
+
+			videoPlay.catch(() => {
+				canvas.isPlaying = false;
+			});
+
+			if (audioElement) {
+				audioElement.currentTime = videoElement.currentTime;
+
+				audioElement.play().catch(() => {
+					// Audio playback can fail independently.
+				});
+			}
 		} else {
 			videoElement.pause();
-			canvas.isPlaying = false;
+			audioElement?.pause();
 		}
 	}
+
+	// videoElement가 만들어진 뒤 부모에게 제어 함수를 전달
+	$effect(() => {
+		if (videoElement) {
+			onRegisterPlayback?.(togglePlayback);
+		}
+	});
+
+	// Source 변경 시 자동 재생
+	$effect(() => {
+		const videoId = canvas.selectedVideo;
+
+		if (!videoId || !videoElement) return;
+
+		tick().then(() => {
+			videoElement?.play().catch(() => {
+				canvas.isPlaying = false;
+			});
+		});
+	});
 </script>
+
 
 
 <div class="preview">
@@ -55,53 +81,37 @@ $effect(() => {
 				No video selected
 			</div>
 		{/if}
+		{#if canvas.audioUrl}
+			<audio
+				bind:this={audioElement}
+				src={canvas.audioUrl}
+				ontimeupdate={() => {
+					if (audioElement) {
+						canvas.currentTime = audioElement.currentTime;
+					}
+				}}
+				onloadedmetadata={() => {
+					if (audioElement) {
+						canvas.duration = audioElement.duration;
+					}
+				}}
+			></audio>
+		{/if}
 	</div>
 
 	<div class="overlay">
-		<button
-			class="mute-button"
-			type="button"
-			onclick={() => {
-				canvas.videoMuted = !canvas.videoMuted;
-			}}
-			aria-label={canvas.videoMuted ? 'Unmute video' : 'Mute video'}
-			aria-pressed={canvas.videoMuted}
-		>
-			{#if canvas.videoMuted}
-				<svg
-					width="20"
-					height="20"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="1.8"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					aria-hidden="true"
-				>
-					<path d="M11 5 6 9H3v6h3l5 4V5Z" />
-					<path d="m17 9 4 4" />
-					<path d="m21 9-4 4" />
-				</svg>
-			{:else}
-				<svg
-					width="20"
-					height="20"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="1.8"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					aria-hidden="true"
-				>
-					<path d="M11 5 6 9H3v6h3l5 4V5Z" />
-					<path d="M15.5 8.5a5 5 0 0 1 0 7" />
-					<path d="M18 6a9 9 0 0 1 0 12" />
-				</svg>
-			{/if}
-		</button>
-
+		<div class="mute-button desktop-hidden">
+			<button
+				class="mute-button"
+				type="button"
+				onclick={() => {
+					canvas.videoMuted = !canvas.videoMuted;
+				}}
+				aria-label={canvas.videoMuted ? 'Unmute video' : 'Mute video'}
+			>
+				<!-- 현재 SVG 아이콘 그대로 -->
+			</button>
+		</div>
 
 		<div class="bottom">
 			<div class="track">
@@ -122,14 +132,16 @@ $effect(() => {
 					</div>
 				</div>
 
-				<button
-					class="play-button"
-					type="button"
-					onclick={togglePlayback}
-					aria-label={canvas.isPlaying ? 'Pause' : 'Play'}
-				>
-					{canvas.isPlaying ? '❚❚' : '▶'}
-				</button>
+				<div class="play-button desktop-hidden">
+					<button
+						class="play-button"
+						type="button"
+						onclick={togglePlayback}
+						aria-label={canvas.isPlaying ? 'Pause' : 'Play'}
+					>
+						{canvas.isPlaying ? '❚❚' : '▶'}
+					</button>
+				</div>
 			</div>
 
 			<div class="progress">
@@ -361,8 +373,13 @@ $effect(() => {
 		opacity: 1;
 	}
 
-	.mute-button svg {
+	/* .mute-button svg {
 		display: block;
+	} */
+
+	.desktop-hidden {
+	visibility: hidden;
+	pointer-events: none;
 	}
 
 </style>

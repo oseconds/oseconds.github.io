@@ -5,8 +5,11 @@ export interface CanvasState {
 
 	title: string;
 	artist: string;
+	spotifyUrl: string;
 
 	audio: File | null;
+	audioUrl: string | null;
+	audioName: string;
 
 	bpm: number;
 	playbackRate: number;
@@ -18,16 +21,19 @@ export interface CanvasState {
 
 	safeZone: boolean;
 	isPlaying: boolean;
-    videoMuted: boolean;
+	videoMuted: boolean;
 }
 
 export const canvas = $state<CanvasState>({
-	selectedVideo: null as string | null,
+	selectedVideo: null,
 
 	title: 'default title test',
-	artist: '0seconds',
+	artist: '',
+	spotifyUrl: '',
 
 	audio: null,
+	audioUrl: null,
+	audioName: '',
 
 	bpm: 135,
 	playbackRate: 1,
@@ -39,5 +45,5 @@ export const canvas = $state<CanvasState>({
 
 	safeZone: false,
 	isPlaying: false,
-    videoMuted: false
+	videoMuted: false,
 });
