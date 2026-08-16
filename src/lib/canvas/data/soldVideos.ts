@@ -51,7 +51,7 @@ export const soldVideos: VideoSource[] = [
 		title: 'DPWM',
 		artist: 'Loxxey',
 		artwork: '/media/Shake-It-Hot/SHAKE-IT-HOT.jpg',
-		video: '/media/SHAKEITHOT/Dpwm_slp.mp4',
+		video: '/media/SHAKEITHOT/DPWN_slp.mp4',
 		bpm: 140,
 		recommendedBars: 4,
 		tags: ['SHAKE-IT-HOT', 'Loxxey', 'bass-music', 'Dubstep', 'PREP-Records'],
