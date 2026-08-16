@@ -9,8 +9,12 @@
 
         canvas.selectedVideo = video.id;
         canvas.title = video.title;
-        canvas.artist = video.artist;
-        canvas.bpm = video.defaultBpm;
+
+        if (video.artist !== undefined) {
+            canvas.artist = video.artist;
+        }
+
+        canvas.bpm = video.bpm ?? 0;
     }
 </script>
 
@@ -35,10 +39,29 @@
                         <div class="title">{video.title}</div>
 
                         <div class="meta">
-                            <span>{video.defaultBpm} BPM</span>
-                            <span>·</span>
-                            <span>{video.tags[0]}</span>
+                            <span>{video.bpm ?? '—'} BPM</span>
+
+                            {#if video.tags[0]}
+                                <span>·</span>
+                                <span>{video.tags[0]}</span>
+                            {/if}
                         </div>
+
+                        {#if video.artist}
+                            <div class="artist">{video.artist}</div>
+                        {/if}
+
+                        {#if video.spotifyUrl}
+                            <a
+                                class="spotify"
+                                href={video.spotifyUrl}
+                                target="_blank"
+                                rel="noreferrer"
+                                onclick={(event) => event.stopPropagation()}
+                            >
+                                View on Spotify ↗
+                            </a>
+                        {/if}
                     </div>
                 </div>
             </button>
@@ -122,5 +145,23 @@
         margin-top: 4px;
         color: rgba(255, 255, 255, 0.7);
         font-size: 10px;
+    }
+
+    .artist {
+	margin-top: 3px;
+	color: rgba(255, 255, 255, 0.65);
+	font-size: 10px;
+}
+
+    .spotify {
+        display: inline-block;
+        margin-top: 6px;
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 10px;
+        text-decoration: none;
+    }
+
+    .spotify:hover {
+        text-decoration: underline;
     }
 </style>
