@@ -117,7 +117,9 @@ $effect(() => {
 
 				<div class="track-info">
 					<div class="title">{canvas.title}</div>
-					<div class="artist">{canvas.artist}</div>
+					<div class="artist">
+						{canvas.artist || 'Artist name'}
+					</div>
 				</div>
 
 				<button
@@ -220,18 +222,22 @@ $effect(() => {
 
 	.track {
 		position: relative;
+
 		display: flex;
 		align-items: center;
 		gap: 10px;
+
 		margin-bottom: 14px;
 		padding: 0 2px;
 	}
 
+	.track-info {
+		min-width: 0;
+		flex: 1;
+	}
+
 	.play-button {
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
+		flex: 0 0 auto;
 
 		width: 40px;
 		height: 40px;
@@ -256,7 +262,7 @@ $effect(() => {
 	}
 
 	.play-button:hover {
-		transform: translate(-50%, -50%) scale(1.05);
+		transform: scale(1.05);
 	}
 
 	.bottom {
@@ -293,11 +299,6 @@ $effect(() => {
 		);
 	}
 
-	.track-info {
-		min-width: 0;
-		flex: 1;
-		padding-right: 46px;
-	}
 
 	.title {
 		overflow: hidden;

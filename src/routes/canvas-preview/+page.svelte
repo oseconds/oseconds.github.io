@@ -1,42 +1,42 @@
 <script lang="ts">
-    import CanvasPreview from '$lib/canvas/components/CanvasPreview.svelte';
-    import SourcePicker from '$lib/canvas/components/controls/SourcePicker.svelte';
+	import CanvasPreview from '$lib/canvas/components/CanvasPreview.svelte';
+	import SourcePicker from '$lib/canvas/components/controls/SourcePicker.svelte';
 </script>
 
 <svelte:head>
-    <title>Canvas Preview</title>
+	<title>Canvas Preview</title>
 </svelte:head>
 
 <div class="page">
-    <header class="header">
-        <h1>Canvas Preview</h1>
-    </header>
+	<header class="header">
+		<h1>Canvas Preview</h1>
+	</header>
 
-    <main class="workspace">
-        <section class="preview-panel">
-            <CanvasPreview />
-        </section>
+	<main class="workspace">
+		<aside class="library-panel">
+			<div class="panel-header">
+				<h2>Video Library</h2>
+			</div>
 
-        <aside class="library-panel">
-            <div class="panel-header">
-                <h2>Video Library</h2>
-            </div>
+			<div class="library-content">
+				<SourcePicker />
+			</div>
+		</aside>
 
-            <div class="library-content">
-                <SourcePicker />
-            </div>
-        </aside>
-    </main>
+		<section class="preview-panel">
+			<CanvasPreview />
+		</section>
 
-    <section class="controls-panel">
-        <div class="panel-header">
-            <h2>Controls</h2>
-        </div>
+		<aside class="controls-panel">
+			<div class="panel-header">
+				<h2>Controls</h2>
+			</div>
 
-        <div class="controls-content">
-            <!-- 다음 단계에서 Controls 컴포넌트들을 넣는다 -->
-        </div>
-    </section>
+			<div class="controls-content">
+				<!-- Controls -->
+			</div>
+		</aside>
+	</main>
 </div>
 
 <style>
@@ -47,90 +47,126 @@
     :global(html),
     :global(body) {
         margin: 0;
-        min-height: 100%;
+        width: 100%;
+        height: 100%;
     }
 
     :global(body) {
+        overflow: hidden;
         background: #0a0a0a;
         color: white;
     }
 
     .page {
-        min-height: 100vh;
+        width: 100%;
+        height: 100dvh;
+
         display: grid;
-        grid-template-rows: auto minmax(0, 1fr) auto;
+        grid-template-rows: 48px minmax(0, 1fr);
+
         overflow: hidden;
     }
 
     .header {
-        height: 56px;
+        height: 48px;
+
         display: flex;
         align-items: center;
-        padding: 0 20px;
+
+        padding: 0 16px;
+
         border-bottom: 1px solid #222;
-        background: #0a0a0a;
     }
 
     .header h1 {
-        margin: 0;
-        font-size: 16px;
-        font-weight: 600;
-    }
-
-    .workspace {
-        min-height: 0;
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(360px, 440px);
-        overflow: hidden;
-    }
-
-    .preview-panel {
-        min-width: 0;
-        min-height: 0;
-        display: grid;
-        place-items: center;
-        padding: 24px;
-        overflow: hidden;
-        border-right: 1px solid #222;
-    }
-
-    .library-panel {
-        min-width: 0;
-        min-height: 0;
-        display: flex;
-        flex-direction: column;
-        background: #0d0d0d;
-    }
-
-    .panel-header {
-        flex: 0 0 auto;
-        height: 48px;
-        display: flex;
-        align-items: center;
-        padding: 0 16px;
-        border-bottom: 1px solid #222;
-    }
-
-    .panel-header h2 {
         margin: 0;
         font-size: 13px;
         font-weight: 600;
     }
 
-    .library-content {
+    .workspace {
+        min-width: 0;
         min-height: 0;
-        overflow-y: auto;
-        padding: 16px;
+
+        display: grid;
+        grid-template-columns:
+            minmax(300px, 340px)
+            minmax(0, 1fr)
+            minmax(300px, 340px);
+
+        overflow: hidden;
+    }
+
+    .library-panel,
+    .controls-panel {
+        min-width: 0;
+        min-height: 0;
+
+        display: flex;
+        flex-direction: column;
+
+        background: #0d0d0d;
+        overflow: hidden;
+    }
+
+    .library-panel {
+        border-right: 1px solid #222;
     }
 
     .controls-panel {
-        min-height: 160px;
-        border-top: 1px solid #222;
-        background: #0d0d0d;
+        border-left: 1px solid #222;
+    }
+
+    .preview-panel {
+        min-width: 0;
+        min-height: 0;
+
+        display: grid;
+        place-items: center;
+
+        padding: 16px;
+
+        overflow: hidden;
+    }
+
+    .preview-panel :global(.preview) {
+        width: auto;
+        height: min(100%, calc(100dvh - 48px - 32px));
+        aspect-ratio: 9 / 16;
+    }
+
+    .panel-header {
+        flex: 0 0 42px;
+
+        display: flex;
+        align-items: center;
+
+        padding: 0 12px;
+
+        border-bottom: 1px solid #222;
+    }
+
+    .panel-header h2 {
+        margin: 0;
+
+        font-size: 11px;
+        font-weight: 600;
+    }
+
+    .library-content,
+    .controls-content {
+        min-height: 0;
+        flex: 1;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .library-content {
+        padding: 10px;
     }
 
     .controls-content {
-        padding: 16px 20px;
+        padding: 12px;
     }
 
     @media (max-width: 800px) {

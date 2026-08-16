@@ -24,9 +24,7 @@
 		canvas.selectedVideo = video.id;
 		canvas.title = video.title;
 
-		if (video.artist !== undefined) {
-			canvas.artist = video.artist;
-		}
+		canvas.artist = video.artist ?? '';
 
 		canvas.bpm = video.bpm ?? 0;
 	}
