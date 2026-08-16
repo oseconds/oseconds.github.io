@@ -1,72 +1,116 @@
 <script lang="ts">
-    import { videos } from '$lib/canvas/data/videos';
-    import { canvas } from '$lib/canvas/state/canvas.svelte';
+	import { canvas } from '$lib/canvas/state/canvas.svelte';
+	import { videos } from '$lib/canvas/data/videos';
+	import { availableVideos } from '$lib/canvas/data/availableVideos';
+	import { soldVideos } from '$lib/canvas/data/soldVideos';
 
-    function selectVideo(id: string) {
-        const video = videos.find((item) => item.id === id);
+	type LibraryTab = 'all' | 'available' | 'sold';
 
-        if (!video) return;
+	let activeTab = $state<LibraryTab>('all');
 
-        canvas.selectedVideo = video.id;
-        canvas.title = video.title;
+	const visibleVideos = $derived(
+		activeTab === 'available'
+			? availableVideos
+			: activeTab === 'sold'
+				? soldVideos
+				: videos
+	);
 
-        if (video.artist !== undefined) {
-            canvas.artist = video.artist;
-        }
+	function selectVideo(id: string) {
+		const video = videos.find((item) => item.id === id);
 
-        canvas.bpm = video.bpm ?? 0;
-    }
+		if (!video) return;
+
+		canvas.selectedVideo = video.id;
+		canvas.title = video.title;
+
+		if (video.artist !== undefined) {
+			canvas.artist = video.artist;
+		}
+
+		canvas.bpm = video.bpm ?? 0;
+	}
 </script>
 
 <div class="library">
-    <div class="grid">
-        {#each videos as video}
-            <button
-                type="button"
+	<div class="tabs">
+		<button
+			type="button"
+			class:active={activeTab === 'all'}
+			onclick={() => (activeTab = 'all')}
+		>
+			All
+		</button>
+
+		<button
+			type="button"
+			class:active={activeTab === 'available'}
+			onclick={() => (activeTab = 'available')}
+		>
+			Available
+		</button>
+
+		<button
+			type="button"
+			class:active={activeTab === 'sold'}
+			onclick={() => (activeTab = 'sold')}
+		>
+			Sold
+		</button>
+	</div>
+
+	<div class="grid">
+		{#each visibleVideos as video}
+            <div
                 class:selected={canvas.selectedVideo === video.id}
                 class="card"
-                onclick={() => selectVideo(video.id)}
             >
-                <div class="thumbnail">
-                    <video
-                        src={video.video}
-                        muted
-                        playsinline
-                        preload="metadata"
-                    ></video>
+                <button
+                    type="button"
+                    class="card-main"
+                    onclick={() => selectVideo(video.id)}
+                    aria-label={`Select ${video.title}`}
+                >
+                    <div class="thumbnail">
+                        <video
+                            src={video.video}
+                            muted
+                            playsinline
+                            preload="metadata"
+                        ></video>
 
-                    <div class="overlay">
-                        <div class="title">{video.title}</div>
+                        <div class="overlay">
+                            <div class="title">{video.title}</div>
 
-                        <div class="meta">
-                            <span>{video.bpm ?? '—'} BPM</span>
+                            <div class="meta">
+                                <span>{video.bpm ?? '—'} BPM</span>
 
-                            {#if video.tags[0]}
-                                <span>·</span>
-                                <span>{video.tags[0]}</span>
+                                {#if video.tags[0]}
+                                    <span>·</span>
+                                    <span>{video.tags[0]}</span>
+                                {/if}
+                            </div>
+
+                            {#if activeTab === 'sold' && video.artist}
+                                <div class="artist">{video.artist}</div>
                             {/if}
                         </div>
-
-                        {#if video.artist}
-                            <div class="artist">{video.artist}</div>
-                        {/if}
-
-                        {#if video.spotifyUrl}
-                            <a
-                                class="spotify"
-                                href={video.spotifyUrl}
-                                target="_blank"
-                                rel="noreferrer"
-                                onclick={(event) => event.stopPropagation()}
-                            >
-                                View on Spotify ↗
-                            </a>
-                        {/if}
                     </div>
-                </div>
-            </button>
+                </button>
+
+                {#if activeTab === 'sold' && video.spotifyUrl}
+                    <a
+                        class="spotify"
+                        href={video.spotifyUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        View on Spotify ↗
+                    </a>
+                {/if}
+            </div>
         {/each}
-    </div>
+	</div>
 </div>
 
 <style>
@@ -163,5 +207,32 @@
 
     .spotify:hover {
         text-decoration: underline;
+    }
+
+    .tabs {
+        display: flex;
+        gap: 6px;
+        margin-bottom: 14px;
+    }
+
+    .tabs button {
+        padding: 6px 10px;
+        border: 1px solid #2a2a2a;
+        border-radius: 999px;
+        background: transparent;
+        color: #777;
+        font-size: 11px;
+        cursor: pointer;
+    }
+
+    .tabs button:hover {
+        color: white;
+        border-color: #444;
+    }
+
+    .tabs button.active {
+        background: white;
+        border-color: white;
+        color: black;
     }
 </style>
