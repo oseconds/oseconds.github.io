@@ -1,9 +1,11 @@
 <script lang="ts">
+	import CanvasWorkspace from '$lib/canvas/components/CanvasWorkspace.svelte';
+
 	let { data } = $props();
 </script>
 
-<h1>{data.videos[0]?.demoTrackTitle}</h1>
+<svelte:head>
+	<title>{data.videos[0]?.demoTrackTitle ?? 'Demo'}</title>
+</svelte:head>
 
-{#each data.videos as video}
-	<div>{video.title}</div>
-{/each}
+<CanvasWorkspace />

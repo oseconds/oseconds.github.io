@@ -5,9 +5,26 @@
 	import { soldVideos } from '$lib/canvas/data/soldVideos';
     import { demoVideos } from '$lib/canvas/data/demoVideos';
 
+    import { page } from '$app/state';
+    import { goto } from '$app/navigation';
+
 	type LibraryTab = 'all' | 'available' | 'demo' | 'sold';
 
     let activeTab = $state<LibraryTab>('all');
+
+    $effect(() => {
+        const pathname = page.url.pathname;
+
+        if (pathname.startsWith('/canvas/demo/')) {
+            activeTab = 'demo';
+        } else if (pathname.startsWith('/canvas/available/')) {
+            activeTab = 'available';
+        } else if (pathname.startsWith('/canvas/sold/')) {
+            activeTab = 'sold';
+        } else {
+            activeTab = 'all';
+        }
+    });
 
     const visibleVideos = $derived(
         activeTab === 'available'
@@ -18,6 +35,17 @@
                     ? soldVideos
                     : videos
     );
+
+    function selectTab(tab: LibraryTab) {
+        activeTab = tab;
+
+        if (tab === 'demo') {
+            goto('/canvas/demo/crumble', {
+                noScroll: true,
+                keepFocus: true
+            });
+        }
+    }
 
 	function selectVideo(id: string) {
 	const video = videos.find((item) => item.id === id);
@@ -61,7 +89,7 @@
         <button
             type="button"
             class:active={activeTab === 'demo'}
-            onclick={() => (activeTab = 'demo')}
+            onclick={() => selectTab('demo')}
         >
             Demo
         </button>

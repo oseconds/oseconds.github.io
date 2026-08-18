@@ -16,4 +16,5 @@
 	src={data.video.video}
 	controls
 	playsinline
-></video>
+><track kind="captions" />
+</video>
