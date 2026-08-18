@@ -63,28 +63,20 @@
 <div class="library">
 	<div class="tabs">
 		<button
-			type="button"
-			class:active={activeTab === 'all'}
-			onclick={() => (activeTab = 'all')}
-		>
-			All
-		</button>
+            type="button"
+            class:active={activeTab === 'all'}
+            onclick={() => selectTab('all')}
+        >
+            All
+        </button>
 
-		<button
-			type="button"
-			class:active={activeTab === 'available'}
-			onclick={() => (activeTab = 'available')}
-		>
-			Available
-		</button>
-
-		<button
-			type="button"
-			class:active={activeTab === 'sold'}
-			onclick={() => (activeTab = 'sold')}
-		>
-			Sold
-		</button>
+        <button
+            type="button"
+            class:active={activeTab === 'available'}
+            onclick={() => selectTab('available')}
+        >
+            Available
+        </button>
 
         <button
             type="button"
@@ -92,6 +84,14 @@
             onclick={() => selectTab('demo')}
         >
             Demo
+        </button>
+
+        <button
+            type="button"
+            class:active={activeTab === 'sold'}
+            onclick={() => selectTab('sold')}
+        >
+            Sold
         </button>
 	</div>
 
