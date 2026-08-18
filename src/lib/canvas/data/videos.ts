@@ -1,7 +1,11 @@
 import { availableVideos } from './availableVideos';
-import { soldVideos } from './soldVideos';
+import { demoVideos } from './demoVideos';
+import { soldAlbums } from './soldAlbums';
+
+const soldVideos = soldAlbums.flatMap((album) => album.tracks);
 
 export const videos = [
 	...availableVideos,
+	...demoVideos,
 	...soldVideos
 ];

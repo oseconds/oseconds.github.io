@@ -6,6 +6,8 @@ export interface VideoAnalysis {
 
 export interface VideoSource {
 	id: string;
+	slug?: string;
+
 	title: string;
 	artist?: string;
 	artwork?: string;
@@ -18,4 +20,18 @@ export interface VideoSource {
 	spotifyUrl?: string;
 
 	analysis?: VideoAnalysis;
+}
+
+export interface DemoVideoSource extends VideoSource {
+	demoTrackSlug: string;
+	demoTrackTitle: string;
+	demoTrackArtist?: string;
+}
+
+export interface SoldAlbum {
+	slug: string;
+	title: string;
+	artist: string;
+	artwork?: string;
+	tracks: VideoSource[];
 }

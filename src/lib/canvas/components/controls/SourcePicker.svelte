@@ -3,18 +3,21 @@
 	import { videos } from '$lib/canvas/data/videos';
 	import { availableVideos } from '$lib/canvas/data/availableVideos';
 	import { soldVideos } from '$lib/canvas/data/soldVideos';
+    import { demoVideos } from '$lib/canvas/data/demoVideos';
 
-	type LibraryTab = 'all' | 'available' | 'sold';
+	type LibraryTab = 'all' | 'available' | 'demo' | 'sold';
 
-	let activeTab = $state<LibraryTab>('all');
+    let activeTab = $state<LibraryTab>('all');
 
-	const visibleVideos = $derived(
-		activeTab === 'available'
-			? availableVideos
-			: activeTab === 'sold'
-				? soldVideos
-				: videos
-	);
+    const visibleVideos = $derived(
+        activeTab === 'available'
+            ? availableVideos
+            : activeTab === 'demo'
+                ? demoVideos
+                : activeTab === 'sold'
+                    ? soldVideos
+                    : videos
+    );
 
 	function selectVideo(id: string) {
 	const video = videos.find((item) => item.id === id);
@@ -54,6 +57,14 @@
 		>
 			Sold
 		</button>
+
+        <button
+            type="button"
+            class:active={activeTab === 'demo'}
+            onclick={() => (activeTab = 'demo')}
+        >
+            Demo
+        </button>
 	</div>
 
 	<div class="grid">
