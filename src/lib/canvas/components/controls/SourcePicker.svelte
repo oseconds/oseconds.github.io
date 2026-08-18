@@ -2,7 +2,7 @@
 	import { canvas } from '$lib/canvas/state/canvas.svelte';
 	import { videos } from '$lib/canvas/data/videos';
 	import { availableVideos } from '$lib/canvas/data/availableVideos';
-	import { soldVideos } from '$lib/canvas/data/soldVideos';
+	import { soldAlbums } from '$lib/canvas/data/soldAlbums';
     import { demoVideos } from '$lib/canvas/data/demoVideos';
 
     import { page } from '$app/state';
@@ -32,7 +32,7 @@
             : activeTab === 'demo'
                 ? demoVideos
                 : activeTab === 'sold'
-                    ? soldVideos
+                    ? soldAlbums.flatMap((album) => album.tracks)
                     : videos
     );
 

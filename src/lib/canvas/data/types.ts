@@ -6,7 +6,7 @@ export interface VideoAnalysis {
 
 export interface VideoSource {
 	id: string;
-	slug?: string;
+	slug: string;
 
 	title: string;
 	artist?: string;
