@@ -3,6 +3,7 @@ import type { VideoSource } from './types';
 export const availableVideos: VideoSource[] = [
 	{
 		id: 'leftfield-bass_1',
+		slug: 'leftfield-bass_1',
 		title: 'video source test',
 		video: '/media/Leftfield-Bass.mp4',
 		bpm: 100,
@@ -15,6 +16,7 @@ export const availableVideos: VideoSource[] = [
 	},
 	{
 		id: 'house_1',
+		slug: 'house_1',
 		title: 'video source test 2',
 		video: '/media/house_1.mp4',
 		bpm: 128,

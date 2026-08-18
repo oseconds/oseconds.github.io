@@ -2,11 +2,9 @@ import { error } from '@sveltejs/kit';
 import { availableVideos } from '$lib/canvas/data/availableVideos';
 
 export function entries() {
-	return availableVideos
-		.filter((video) => video.slug)
-		.map((video) => ({
-			slug: video.slug!
-		}));
+	return availableVideos.map((video) => ({
+		slug: video.slug
+	}));
 }
 
 export function load({ params }) {
