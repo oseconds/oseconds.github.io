@@ -52,10 +52,13 @@
 <main class="project-page" lang="en">
 	<article>
 		<header class="opening">
-			<p class="archive-name">VOID-A</p>
-			<h1 lang="ko">보이다</h1>
-			<p class="format">Interactive audiovisual installation</p>
-			<p class="opening-details">Dual-display real-time visuals, viewer tracking,<br />custom parametric directional speaker, 2023</p>
+			<div class="opening-copy">
+				<p class="archive-name">VOID-A</p>
+				<h1 lang="ko">보이다</h1>
+				<p class="format">Interactive audiovisual installation</p>
+				<p class="opening-details">Dual-display real-time visuals, viewer tracking,<br />{' '}custom parametric directional speaker, 2023</p>
+				<p class="play-note">Play with sound. Around 4–6 seconds, a passerby crosses the speaker’s path and the recorded sound briefly drops.</p>
+			</div>
 			<figure class="primary-media">
 				<video
 					src="/media/portfolio/void-a/void-a-primary-result.mp4"
@@ -72,7 +75,6 @@
 						label="English"
 					/>
 				</video>
-				<figcaption>Play with sound. Around 4–6 seconds, a passerby crosses the speaker’s path and the recorded sound briefly drops.</figcaption>
 			</figure>
 		</header>
 
@@ -167,24 +169,26 @@
 		</section>
 
 		<section class="content-section installation" aria-labelledby="installation-title">
-			<div class="section-heading">
-				<h2 id="installation-title">Installation</h2>
-			</div>
 			<div class="section-body">
-				<p class="copy-rail">{copy.installation}</p>
-				<figure class="body-media installation-video">
-					<video
-						src="/media/portfolio/void-a/void-a-viewer-experience.mp4"
-						aria-label="Third-person view of a viewer entering and moving through the VOID-A installation"
-						muted
-						autoplay
-						loop
-						playsinline
-						controls
-						preload="metadata"
-						data-ambient-video
-					></video>
-				</figure>
+				<div class="installation-feature">
+					<figure class="body-media installation-video">
+						<video
+							src="/media/portfolio/void-a/void-a-viewer-experience.mp4"
+							aria-label="Third-person view of a viewer entering and moving through the VOID-A installation"
+							muted
+							autoplay
+							loop
+							playsinline
+							controls
+							preload="metadata"
+							data-ambient-video
+						></video>
+					</figure>
+					<div class="installation-copy">
+						<h2 id="installation-title">Installation</h2>
+						<p class="copy-rail">{copy.installation}</p>
+					</div>
+				</div>
 				<figure class="body-media installation-still">
 					<img src="/media/portfolio/void-a/void-a-installation-view.jpg" alt="Two angled displays above the directional speaker assembly and exposed electronics" width="1851" height="3001" loading="lazy" />
 					<figcaption>{copy.installationStill}</figcaption>
@@ -237,13 +241,22 @@
 
 	video { background: #e5e4e0; }
 
-	.opening { max-width: 1160px; }
+	.opening {
+		max-width: 1160px;
+		display: grid;
+		grid-template-columns: minmax(0, 0.58fr) minmax(0, 1fr);
+		gap: clamp(36px, 7vw, 100px);
+		align-items: center;
+	}
+	.opening-copy { min-width: 0; }
 	.archive-name { margin-bottom: 8px; font-size: 12px; letter-spacing: .08em; }
 	.opening h1 { margin-bottom: 12px; font-size: clamp(38px, 6vw, 76px); font-weight: 400; letter-spacing: -.055em; line-height: 1; }
 	.format { margin-bottom: 4px; font-size: clamp(16px, 1.5vw, 20px); }
-	.opening-details { margin-bottom: 26px; color: var(--page-muted); font-size: 14px; line-height: 1.55; }
-	.primary-media { width: min(100%, 720px); }
+	.opening-details { margin-bottom: 0; color: var(--page-muted); font-size: 14px; line-height: 1.55; }
+	.play-note { margin: 18px 0 0; color: var(--page-muted); font-size: 13px; line-height: 1.55; }
+	.primary-media { width: min(100%, 720px); justify-self: end; }
 	.primary-media video { background: #111; }
+	.primary-media video { width: auto; max-width: 100%; max-height: 74vh; margin-left: auto; }
 	figcaption { margin-top: 10px; color: var(--page-muted); font-size: 13px; line-height: 1.55; }
 
 	.text-section,
@@ -265,24 +278,37 @@
 	.copy-rail p,
 	.section-body > p { margin-bottom: 18px; font-size: clamp(15px, 1.3vw, 17px); line-height: 1.72; }
 	.body-media { max-width: 1080px; margin-top: 44px; }
-	.split-view img { width: 100%; }
-	.media-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(14px, 2.4vw, 32px); align-items: start; }
-	.media-pair img { width: 100%; }
+	.split-view img { width: auto; max-width: 100%; max-height: 64vh; margin: 0 auto; }
+	.paired-media { max-width: 900px; }
+	.media-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(14px, 2.4vw, 32px); align-items: center; }
+	.media-pair img { width: auto; max-width: 100%; max-height: 43vh; margin: 0 auto; }
 	.motion-media { max-width: 720px; margin-top: 60px; }
+	.motion-media video { width: auto; max-width: 100%; max-height: 54vh; margin: 0 auto; }
 	.development { margin-top: clamp(104px, 13vw, 168px); }
 	.development-media { max-width: 900px; }
-	.installation { margin-top: clamp(132px, 19vw, 240px); }
-	.installation-video { max-width: 720px; margin-top: 34px; }
-	.installation-still { max-width: 720px; margin-top: 42px; }
-	.installation-still img { width: 100%; }
+	.development-media video { width: auto; max-width: 100%; max-height: 48vh; margin: 0 auto; }
+	.installation { grid-template-columns: minmax(0, 1fr); margin-top: clamp(132px, 19vw, 240px); }
+	.installation .section-body { max-width: 1080px; }
+	.installation-feature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 0.72fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
+	.installation-video { margin-top: 0; }
+	.installation-video video { width: auto; max-width: 100%; max-height: 66vh; margin: 0 auto; }
+	.installation-copy h2 { margin: 0 0 20px; font-size: clamp(22px, 2.3vw, 32px); font-weight: 400; letter-spacing: -.035em; line-height: 1.12; }
+	.installation-copy .copy-rail { max-width: 480px; }
+	.installation-copy p { margin-bottom: 0; }
+	.installation-still { max-width: 920px; margin-top: 48px; }
+	.installation-still img { width: auto; max-width: 100%; max-height: 62vh; margin: 0 auto; }
+	.installation-still figcaption { max-width: 38.2vh; margin: 10px auto 0; }
 	.project-information { margin-top: clamp(112px, 16vw, 196px); padding-top: 20px; border-top: 1px solid var(--page-rule); }
 	.project-information dl { margin: 0; }
-	.project-information dl > div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 24px; padding: 0 0 18px; }
+	.project-information dl > div { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 20px; padding: 0 0 10px; }
 	.project-information dt { color: var(--page-muted); }
-	.project-information dd { margin: 0; line-height: 1.65; }
+	.project-information dd { margin: 0; font-size: 14px; line-height: 1.5; }
 
 	@media (max-width: 700px) {
 		.project-page { width: min(100% - 32px, 1440px); padding-top: 24px; }
+		.opening { grid-template-columns: 1fr; gap: 28px; }
+		.primary-media { width: 100%; justify-self: stretch; }
+		.primary-media video { width: 100%; max-height: none; margin: 0; }
 		.opening-details br { display: none; }
 		.text-section,
 		.content-section,
@@ -292,6 +318,15 @@
 		.development { margin-top: 104px; }
 		.installation { margin-top: 128px; }
 		.media-pair { grid-template-columns: 1fr; gap: 22px; }
+		.media-pair img,
+		.split-view img,
+		.motion-media video,
+		.development-media video,
+		.installation-video video,
+		.installation-still img { width: 100%; max-height: none; }
+		.installation-feature { grid-template-columns: 1fr; gap: 24px; }
+		.installation-copy { grid-row: 1; }
+		.installation-still figcaption { max-width: none; }
 		.body-media { margin-top: 32px; }
 		.motion-media { margin-top: 44px; }
 		.project-information { margin-top: 104px; }
