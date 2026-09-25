@@ -5,7 +5,7 @@
 		about: [
 			'VOID-a explores a reversal between seeing and being seen.',
 			'The viewer looks at the work, while the work appears to return that gaze. An eye-like form gives the screen object a minimal sense of presence.',
-			'This relation unfolds through two connected forms of gaze: one through perspective, the other through sound.'
+			'This relation unfolds through perspective and sound.'
 		],
 		visual: [
 			'Anamorphosis usually depends on a fixed viewing position.',
@@ -18,10 +18,10 @@
 		],
 		audioSystem: 'Modulation circuit and installed directional speaker assembly.',
 		development:
-			'Realtime image generation was explored as part of the visual system, with generated textures applied directly to moving 3D geometry in TouchDesigner.',
+			'Realtime image generation was explored as part of the visual system, applying generated textures directly to moving 3D geometry in TouchDesigner.',
 		installation: [
-			'In the installation, perspective and sound converge on the viewer.',
-			'Real-time visuals, tracking, and directional audio turn a reactive system into an encounter that appears to look — and listen — back.'
+			'Perspective and sound converge on the viewer.',
+			'Real-time visuals, tracking, and directional audio create an encounter in which the work appears to look — and listen — back.'
 		]
 	};
 
