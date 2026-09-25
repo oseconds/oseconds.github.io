@@ -201,6 +201,10 @@
 		padding: clamp(24px, 4vw, 60px) 0 112px;
 		color: var(--page-ink);
 	}
+	.project-page article {
+		width: min(100%, 1040px);
+		margin-inline: auto;
+	}
 
 	figure,
 	h1,
@@ -221,11 +225,12 @@
 	video { background: #e5e4e0; }
 
 	.opening {
-		max-width: 1020px;
-		margin: 0 auto;
+		width: min(100%, 1020px);
+		max-width: none;
+		margin-inline: auto;
 		display: grid;
-		grid-template-columns: minmax(0, 0.58fr) minmax(0, 1fr);
-		gap: clamp(30px, 4vw, 58px);
+		grid-template-columns: minmax(300px, 340px) minmax(0, 1fr);
+		gap: 64px;
 		align-items: center;
 	}
 	.opening-copy { min-width: 0; }
@@ -234,7 +239,7 @@
 	.format { margin-bottom: 4px; font-size: clamp(16px, 1.5vw, 20px); }
 	.opening-details { margin-bottom: 0; color: var(--page-muted); font-size: 16px; line-height: 1.55; }
 	.play-note { margin: 18px 0 0; color: var(--page-muted); font-size: 13px; line-height: 1.55; }
-	.primary-media { width: min(100%, 720px); justify-self: end; }
+	.primary-media { width: 100%; justify-self: end; }
 	.primary-media video { background: #111; }
 	.primary-media video { width: auto; max-width: 100%; max-height: 74vh; margin-left: auto; }
 	figcaption { margin-top: 10px; color: var(--page-muted); font-size: 13px; line-height: 1.55; }
@@ -242,9 +247,10 @@
 	.text-section,
 	.content-section,
 	.project-information {
-		max-width: 1220px;
-		margin-left: auto;
-		margin-right: auto;
+		width: 100%;
+		max-width: none;
+		margin-left: 0;
+		margin-right: 0;
 	}
 
 	.about { margin-top: clamp(82px, 10vw, 132px); }
@@ -258,57 +264,62 @@
 	.about h2 { margin-bottom: 22px; }
 	.section-heading > p { margin: 9px 0 0; color: var(--page-muted); font-size: 15px; }
 	.section-body { min-width: 0; }
-	.copy-rail { max-width: 720px; }
+	.copy-rail { max-width: 650px; }
 	.copy-rail p,
 	.section-body > p { margin-bottom: 18px; font-size: clamp(15px, 1.3vw, 17px); line-height: 1.72; }
-	.body-media { max-width: 1080px; margin: 38px 0 0; }
-	.split-view { margin-top: 34px; }
-	.split-view img { width: auto; max-width: 100%; max-height: 66vh; margin: 0; }
+	.body-media { width: 100%; max-width: 1040px; margin: 34px 0 0; }
+	.split-view { width: 100%; }
+	.split-view img { width: 100%; max-width: none; max-height: none; margin: 0; }
 	.media-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(14px, 2vw, 26px); align-items: center; }
 	.media-pair img { width: auto; max-width: 100%; max-height: 43vh; margin: 0 auto; }
 	.auditory-bridge {
-		width: min(100%, 1080px);
+		width: 100%;
 		display: grid;
-		grid-template-columns: minmax(0, 540px) minmax(300px, 360px);
-		column-gap: clamp(50px, 4.5vw, 70px);
-		row-gap: 0;
-		align-items: center;
+		grid-template-columns: 480px 340px;
+		column-gap: 56px;
+		row-gap: 28px;
+		align-items: start;
 	}
-	.auditory-copy { grid-column: 2; grid-row: 1; min-width: 0; }
+	.auditory-copy { grid-column: 2; grid-row: 1; min-width: 0; padding-top: 34px; }
 	.auditory-copy .section-heading { margin-bottom: 16px; }
 	.auditory-copy > p { margin-bottom: 14px; font-size: clamp(15px, 1.3vw, 17px); line-height: 1.72; }
 	.auditory-copy > p:last-child { margin-bottom: 0; }
-	.servo-media { grid-column: 1; grid-row: 1; width: 100%; max-width: 620px; min-width: 0; }
-	.servo-media video { width: auto; max-width: 100%; height: auto; max-height: min(68vh, 620px); margin: 0; }
-	@media (min-width: 1001px) {
-		.servo-media video { max-width: 460px; }
-	}
-	.auditory-media { grid-column: 1 / -1; width: min(100%, 920px); margin-top: 24px; }
-	.auditory-media-parts { gap: clamp(14px, 2vw, 24px); }
-	.auditory-media-parts img { width: auto; max-height: 32vh; margin-left: 0; margin-right: 0; }
+	.servo-media { grid-column: 1; grid-row: 1; width: 480px; max-width: 100%; min-width: 0; }
+	.servo-media video { width: 100%; max-width: none; height: auto; max-height: none; margin: 0; }
+	.auditory-media { grid-column: 1 / -1; width: min(100%, 760px); margin-top: 0; }
+	.auditory-media-parts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+	.auditory-media-parts img { width: 100%; max-width: none; max-height: none; margin: 0; }
 	.auditory-media figcaption { margin-top: 12px; }
 	@media (max-width: 1000px) {
 		.auditory-bridge { display: flex; flex-direction: column; align-items: stretch; gap: 24px; }
-		.auditory-copy { order: 0; }
-		.servo-media { order: 1; max-width: 620px; }
+		.auditory-copy { order: 0; padding-top: 0; }
+		.servo-media { order: 1; max-width: 480px; }
 		.auditory-bridge .auditory-media { order: 2; margin-top: 0; }
 	}
 	.development { margin-top: clamp(76px, 8.5vw, 112px); }
-	.development-media { max-width: 820px; margin-top: 28px; }
-	.development-media video { width: auto; max-width: 100%; max-height: 48vh; margin: 0; }
-	.installation { margin-top: clamp(148px, 17vw, 212px); }
-	.installation .section-body { max-width: 1080px; }
-	.installation-feature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 0.72fr); gap: clamp(30px, 4vw, 58px); align-items: center; }
+	.development-media { max-width: 760px; margin-top: 28px; }
+	.development-media video { width: 100%; max-width: none; max-height: none; margin: 0; }
+	.installation { margin-top: clamp(111px, 12.75vw, 159px); }
+	.installation .section-body { width: min(100%, 960px); max-width: none; }
+	.installation-feature { display: grid; grid-template-columns: 480px minmax(0, 1fr); gap: 64px; align-items: center; }
 	.installation-video { margin-top: 0; }
-	.installation-video video { width: auto; max-width: 100%; max-height: 66vh; margin: 0; }
+	.installation-video video { width: 100%; max-width: none; max-height: none; margin: 0; }
 	.installation-copy h2 { margin: 0 0 20px; font-size: clamp(22px, 2.3vw, 32px); font-weight: 400; letter-spacing: -.035em; line-height: 1.12; }
-	.installation-copy .copy-rail { max-width: 480px; }
+	.installation-copy .copy-rail { max-width: 650px; }
 	.installation-copy p { margin-bottom: 0; }
 	.project-information { margin-top: clamp(68px, 7.5vw, 100px); padding-top: 18px; border-top: 1px solid var(--page-rule); }
 	.project-information .section-heading { margin-bottom: 18px; }
-	.project-facts { max-width: 840px; font-size: 15px; line-height: 1.62; }
+	.project-facts {
+		width: min(100%, 760px);
+		max-width: none;
+		display: grid;
+		grid-template-columns: 232px minmax(0, 1fr);
+		column-gap: 64px;
+		font-size: 15px;
+		line-height: 1.62;
+	}
 	.project-facts p { margin: 0; }
-	.project-facts .project-systems { margin-top: 16px; }
+	.project-facts .project-systems { margin-top: 0; }
 
 	@media (max-width: 700px) {
 		.project-page { width: min(100% - 32px, 1440px); padding-top: 24px; }
@@ -339,5 +350,8 @@
 		.installation-copy { grid-row: 1; }
 		.body-media { margin-top: 32px; }
 		.project-information { margin-top: 72px; }
+		.project-facts { grid-template-columns: 1fr; row-gap: 12px; }
+		.project-facts .project-systems { margin-top: 0; }
+		.installation { margin-top: 90px; }
 	}
 </style>
