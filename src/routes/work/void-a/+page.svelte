@@ -3,20 +3,22 @@
 
 	const copy = {
 		about: [
-			'VOID-a begins by reversing the usual direction of interaction between viewer and artwork. Rather than presenting a system that simply responds to input, the work was developed to feel as if it is already aware of the viewer and returning their gaze.',
-			'The eye-like form acts as a minimal cue that lets the screen object read as a presence rather than as generic reactive graphics.'
+			'VOID-a explores a reversal between seeing and being seen.',
+			'The viewer looks at the work, while the work appears to return that gaze. An eye-like form gives the screen object a minimal sense of presence.'
 		],
-		visual:
-			'Anamorphic images usually depend on a fixed viewing position. VOID-a was developed around a moving virtual viewpoint instead: the paired displays can resolve as a single spatial image from a particular position, while off-axis views expose the underlying structure and distortion.',
+		visual: [
+			'Anamorphosis usually depends on a fixed viewing position.',
+			'VOID-a instead explores a moving virtual viewpoint, using two displays to construct a shared virtual space whose perspective shifts across different points of view.'
+		],
 		auditory: [
-			'Sound extends the same relationship into physical space. A parametric directional speaker system was developed to concentrate sound toward the viewer rather than disperse it broadly through the room.',
-			'Kinect tracked the viewer’s eye/position, TouchDesigner calculated a target direction, and the physical servo changed the aiming direction of the installed speaker assembly.'
+			'The same relationship is extended through sound.',
+			'A custom parametric speaker concentrates sound into a narrow direction. Kinect tracks the viewer’s position, TouchDesigner calculates the target direction, and a servo physically aims the speaker toward the viewer.'
 		],
-		audioSystem: 'Modulation circuit study and installed directional speaker assembly.',
+		audioSystem: 'Modulation circuit and installed directional speaker assembly.',
 		development:
-			'One visual study generated textures in real time and applied them directly to a moving 3D object inside TouchDesigner.',
+			'Realtime image generation was explored as part of the visual system, applying generated textures directly to moving 3D geometry in TouchDesigner.',
 		installation:
-			'The completed installation brings the dual-display visual system, viewer tracking, directional speaker and physical control system into a single viewer experience.'
+			'The installation brings together real-time visuals, viewer tracking, and directional sound as a single spatial encounter.'
 	};
 
 	onMount(() => {
@@ -52,7 +54,7 @@
 				<p class="subtitle" lang="ko">보이다</p>
 				<p class="format">Interactive audiovisual installation</p>
 				<p class="opening-details">Dual-display real-time visuals, viewer tracking,<br />{' '}custom parametric directional speaker, 2023</p>
-				<p class="play-note">Play with sound. Around 4–6 seconds, a passerby crosses the speaker’s path and the recorded sound briefly drops.</p>
+				<p class="play-note">Play with sound.<br />Around 4–6 seconds, a passerby crosses the speaker’s path and the sound briefly drops.</p>
 			</div>
 			<figure class="primary-media">
 				<video
@@ -74,7 +76,7 @@
 		</header>
 
 		<section class="text-section about" aria-labelledby="about-title">
-			<h2 id="about-title">About</h2>
+			<h2 id="about-title">ABOUT</h2>
 			<div class="copy-rail">
 				<p>{copy.about[0]}</p>
 				<p>{copy.about[1]}</p>
@@ -83,11 +85,13 @@
 
 		<section class="content-section visual-gaze" aria-labelledby="visual-title">
 			<div class="section-heading">
-				<h2 id="visual-title">Visual gaze</h2>
+				<h2 id="visual-title">VISUAL GAZE</h2>
 				<p>Moving viewpoint</p>
 			</div>
 			<div class="section-body">
-				<p class="copy-rail">{copy.visual}</p>
+				{#each copy.visual as paragraph}
+					<p class="copy-rail">{paragraph}</p>
+				{/each}
 				<figure class="body-media split-view">
 					<img
 						src="/media/portfolio/void-a/void-a-anamorphic-viewpoint-td.webp"
@@ -104,7 +108,7 @@
 			<div class="auditory-bridge">
 				<div class="auditory-copy">
 					<div class="section-heading">
-						<h2 id="auditory-title">Auditory gaze</h2>
+						<h2 id="auditory-title">AUDITORY GAZE</h2>
 						<p>Directional sound</p>
 					</div>
 					<p>{copy.auditory[0]}</p>
@@ -135,7 +139,7 @@
 
 		<section class="content-section development" aria-labelledby="development-title">
 			<div class="section-heading">
-				<h2 id="development-title">Selected visual development</h2>
+				<h2 id="development-title">VISUAL DEVELOPMENT</h2>
 			</div>
 			<div class="section-body">
 				<p class="copy-rail">{copy.development}</p>
@@ -172,7 +176,7 @@
 						></video>
 					</figure>
 					<div class="installation-copy">
-						<h2 id="installation-title">Installation</h2>
+						<h2 id="installation-title">INSTALLATION</h2>
 						<p class="copy-rail">{copy.installation}</p>
 					</div>
 				</div>
@@ -181,7 +185,7 @@
 
 		<section class="project-information" aria-labelledby="information-title">
 			<div class="section-heading">
-				<h2 id="information-title">Project information</h2>
+				<h2 id="information-title">PROJECT INFORMATION</h2>
 			</div>
 			<div class="project-facts">
 				<p>2023<br />Interactive audiovisual installation</p>
