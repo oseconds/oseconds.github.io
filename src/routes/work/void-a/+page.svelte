@@ -8,14 +8,11 @@
 		],
 		visual:
 			'Anamorphic images usually depend on a fixed viewing position. VOID-a was developed around a moving virtual viewpoint instead: the paired displays can resolve as a single spatial image from a particular position, while off-axis views expose the underlying structure and distortion.',
-		viewpointPair:
-			'The same two displays seen from different positions. From a resolved viewpoint the virtual space connects; from an offset position its structure and distortion become visible.',
 		auditory: [
-			'Sound extends the same relationship into physical space. A custom parametric ultrasonic speaker was built from an array of ultrasonic transducers and mounted on a servo-controlled directional assembly.',
+			'Sound extends the same relationship into physical space. A parametric directional speaker system was developed to concentrate sound toward the viewer rather than disperse it broadly through the room.',
 			'Kinect tracked the viewer’s eye/position, TouchDesigner calculated a target direction, and the physical servo changed the aiming direction of the installed speaker assembly.'
 		],
-		fabricationPair: 'Hand-built ultrasonic transducer array and its directional mount.',
-		servo: 'TouchDesigner viewpoint changes and the corresponding physical servo movement during a control test.',
+		audioSystem: 'Modulation circuit study and installed directional speaker assembly.',
 		development:
 			'One visual study generated textures in real time and applied them directly to a moving 3D object inside TouchDesigner.',
 		installation:
@@ -100,34 +97,20 @@
 						loading="lazy"
 					/>
 				</figure>
-				<figure class="paired-media body-media">
-					<div class="media-pair">
-						<img src="/media/portfolio/void-a/void-a-viewpoint-resolved.png" alt="The paired displays from the resolved viewing position, forming a connected virtual space" width="1448" height="1086" loading="lazy" />
-						<img src="/media/portfolio/void-a/void-a-viewpoint-offset.png" alt="The same paired displays from an offset position, exposing their structure and distortion" width="1448" height="1086" loading="lazy" />
-					</div>
-					<figcaption>{copy.viewpointPair}</figcaption>
-				</figure>
 			</div>
 		</section>
 
 		<section class="content-section auditory-gaze" aria-labelledby="auditory-title">
-			<div class="section-heading">
-				<h2 id="auditory-title">Auditory gaze</h2>
-				<p>Directional sound</p>
-			</div>
-			<div class="section-body">
-				<div class="copy-rail">
+			<div class="auditory-bridge">
+				<div class="auditory-copy">
+					<div class="section-heading">
+						<h2 id="auditory-title">Auditory gaze</h2>
+						<p>Directional sound</p>
+					</div>
 					<p>{copy.auditory[0]}</p>
 					<p>{copy.auditory[1]}</p>
 				</div>
-				<figure class="paired-media body-media">
-					<div class="media-pair">
-						<img src="/media/portfolio/void-a/void-a-transducer-array.jpg" alt="Hand-built ultrasonic transducer array" width="4032" height="3024" loading="lazy" />
-						<img src="/media/portfolio/void-a/void-a-speaker-mounted.jpg" alt="Ultrasonic transducer array installed on its directional mount" width="4032" height="3024" loading="lazy" />
-					</div>
-					<figcaption>{copy.fabricationPair}</figcaption>
-				</figure>
-				<figure class="body-media motion-media">
+				<figure class="servo-media">
 					<video
 						src="/media/portfolio/void-a/void-a-servo-aiming.mp4"
 						aria-label="TouchDesigner viewpoint changes and physical servo aiming movement"
@@ -139,7 +122,13 @@
 						preload="metadata"
 						data-ambient-video
 					></video>
-					<figcaption>{copy.servo}</figcaption>
+				</figure>
+				<figure class="auditory-media body-media">
+					<div class="media-pair auditory-media-parts">
+						<img src="/media/portfolio/void-a/void-a-directional-audio-circuit.png" alt="Circuit schematic study for the directional-audio system" width="1770" height="1310" loading="lazy" />
+						<img src="/media/portfolio/void-a/void-a-speaker-mounted.jpg" alt="Directional speaker assembly installed on its mount" width="4032" height="3024" loading="lazy" />
+					</div>
+					<figcaption>{copy.audioSystem}</figcaption>
 				</figure>
 			</div>
 		</section>
@@ -259,7 +248,9 @@
 	}
 
 	.about { margin-top: clamp(82px, 10vw, 132px); }
-	.content-section { margin-top: clamp(104px, 12vw, 164px); }
+	.content-section { margin-top: clamp(74px, 8.5vw, 116px); }
+	.visual-gaze { margin-top: clamp(72px, 8vw, 108px); }
+	.auditory-gaze { margin-top: clamp(38px, 4vw, 56px); }
 	.section-heading h2,
 	.about h2,
 	.project-information h2 { margin: 0; font-size: clamp(22px, 2.3vw, 32px); font-weight: 400; letter-spacing: -.035em; line-height: 1.12; }
@@ -273,12 +264,36 @@
 	.body-media { max-width: 1080px; margin: 38px 0 0; }
 	.split-view { margin-top: 34px; }
 	.split-view img { width: auto; max-width: 100%; max-height: 66vh; margin: 0; }
-	.paired-media { max-width: 900px; margin-top: 30px; }
 	.media-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(14px, 2vw, 26px); align-items: center; }
 	.media-pair img { width: auto; max-width: 100%; max-height: 43vh; margin: 0 auto; }
-	.motion-media { max-width: 540px; margin-top: 44px; }
-	.motion-media video { width: auto; max-width: 100%; max-height: 50vh; margin: 0; }
-	.development { margin-top: clamp(96px, 10vw, 136px); }
+	.auditory-bridge {
+		width: min(100%, 1080px);
+		display: grid;
+		grid-template-columns: minmax(0, 540px) minmax(300px, 360px);
+		column-gap: clamp(50px, 4.5vw, 70px);
+		row-gap: 0;
+		align-items: center;
+	}
+	.auditory-copy { grid-column: 2; grid-row: 1; min-width: 0; }
+	.auditory-copy .section-heading { margin-bottom: 16px; }
+	.auditory-copy > p { margin-bottom: 14px; font-size: clamp(15px, 1.3vw, 17px); line-height: 1.72; }
+	.auditory-copy > p:last-child { margin-bottom: 0; }
+	.servo-media { grid-column: 1; grid-row: 1; width: 100%; max-width: 620px; min-width: 0; }
+	.servo-media video { width: auto; max-width: 100%; height: auto; max-height: min(68vh, 620px); margin: 0; }
+	@media (min-width: 1001px) {
+		.servo-media video { max-width: 460px; }
+	}
+	.auditory-media { grid-column: 1 / -1; width: min(100%, 920px); margin-top: 24px; }
+	.auditory-media-parts { gap: clamp(14px, 2vw, 24px); }
+	.auditory-media-parts img { width: auto; max-height: 32vh; margin-left: 0; margin-right: 0; }
+	.auditory-media figcaption { margin-top: 12px; }
+	@media (max-width: 1000px) {
+		.auditory-bridge { display: flex; flex-direction: column; align-items: stretch; gap: 24px; }
+		.auditory-copy { order: 0; }
+		.servo-media { order: 1; max-width: 620px; }
+		.auditory-bridge .auditory-media { order: 2; margin-top: 0; }
+	}
+	.development { margin-top: clamp(76px, 8.5vw, 112px); }
 	.development-media { max-width: 820px; margin-top: 28px; }
 	.development-media video { width: auto; max-width: 100%; max-height: 48vh; margin: 0; }
 	.installation { margin-top: clamp(148px, 17vw, 212px); }
@@ -289,9 +304,9 @@
 	.installation-copy h2 { margin: 0 0 20px; font-size: clamp(22px, 2.3vw, 32px); font-weight: 400; letter-spacing: -.035em; line-height: 1.12; }
 	.installation-copy .copy-rail { max-width: 480px; }
 	.installation-copy p { margin-bottom: 0; }
-	.project-information { margin-top: clamp(96px, 10vw, 132px); padding-top: 18px; border-top: 1px solid var(--page-rule); }
+	.project-information { margin-top: clamp(68px, 7.5vw, 100px); padding-top: 18px; border-top: 1px solid var(--page-rule); }
 	.project-information .section-heading { margin-bottom: 18px; }
-	.project-facts { max-width: 840px; font-size: 14px; line-height: 1.5; }
+	.project-facts { max-width: 840px; font-size: 15px; line-height: 1.62; }
 	.project-facts p { margin: 0; }
 	.project-facts .project-systems { margin-top: 16px; }
 
@@ -305,19 +320,24 @@
 		.content-section,
 		.project-information { display: block; }
 		.about { margin-top: 76px; }
-		.content-section { margin-top: 88px; }
-		.development { margin-top: 88px; }
+		.content-section { margin-top: 70px; }
+		.visual-gaze { margin-top: 70px; }
+		.auditory-gaze { margin-top: 38px; }
+		.development { margin-top: 70px; }
 		.installation { margin-top: 120px; }
 		.media-pair { grid-template-columns: 1fr; gap: 22px; }
 		.media-pair img,
 		.split-view img,
-		.motion-media video,
 		.development-media video,
 		.installation-video video { width: 100%; max-height: none; }
+		.servo-media { max-width: 100%; }
+		.servo-media video,
+		.auditory-media-parts img { width: 100%; max-height: none; margin: 0; }
+		.auditory-media { width: 100%; margin-top: 0; }
+		.auditory-media-parts { grid-template-columns: 1fr; gap: 18px; }
 		.installation-feature { grid-template-columns: 1fr; gap: 24px; }
 		.installation-copy { grid-row: 1; }
 		.body-media { margin-top: 32px; }
-		.motion-media { margin-top: 44px; }
-		.project-information { margin-top: 88px; }
+		.project-information { margin-top: 72px; }
 	}
 </style>
