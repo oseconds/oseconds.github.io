@@ -5,5 +5,20 @@ sandbox_mode = "workspace-write"
 approval_policy = "on-request"
 
 web_search = "live"
-model_verbosity = "medium"
+model_verbosity = "high"
 model_reasoning_summary = "detailed"
+
+[agents]
+enabled = true
+max_concurrent_threads_per_session = 4
+default_subagent_model = "gpt-6-luna"
+default_subagent_reasoning_effort = "medium"
+interrupt_message = true
+
+[agents.implementation_worker]
+description = "Bounded GPT-6 Luna implementation worker for components, routes, styling, TypeScript, and small refactors within an explicitly assigned scope."
+config_file = "agents/implementation_worker.toml"
+
+[agents.regression_review]
+description = "Fresh GPT-6 Luna post-edit reviewer for Svelte, TypeScript, routes, responsive behavior, media paths, Canvas boundaries, and scope regressions."
+config_file = "agents/regression_review.toml"
