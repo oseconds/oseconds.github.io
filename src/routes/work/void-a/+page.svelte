@@ -3,11 +3,11 @@
 
 	const copy = {
 		about: [
-			'VOID-A begins by reversing the usual direction of interaction between viewer and artwork. Rather than presenting a system that simply responds to input, the work was developed to feel as if it is already aware of the viewer and returning their gaze.',
+			'VOID-a begins by reversing the usual direction of interaction between viewer and artwork. Rather than presenting a system that simply responds to input, the work was developed to feel as if it is already aware of the viewer and returning their gaze.',
 			'The eye-like form acts as a minimal cue that lets the screen object read as a presence rather than as generic reactive graphics.'
 		],
 		visual:
-			'Anamorphic images usually depend on a fixed viewing position. VOID-A was developed around a moving virtual viewpoint instead: the paired displays can resolve as a single spatial image from a particular position, while off-axis views expose the underlying structure and distortion.',
+			'Anamorphic images usually depend on a fixed viewing position. VOID-a was developed around a moving virtual viewpoint instead: the paired displays can resolve as a single spatial image from a particular position, while off-axis views expose the underlying structure and distortion.',
 		viewpointPair:
 			'The same two displays seen from different positions. From a resolved viewpoint the virtual space connects; from an offset position its structure and distortion become visible.',
 		auditory: [
@@ -19,9 +19,7 @@
 		development:
 			'One visual study generated textures in real time and applied them directly to a moving 3D object inside TouchDesigner.',
 		installation:
-			'The completed installation brings the dual-display visual system, viewer tracking, directional speaker and physical control system into a single viewer experience.',
-		installationStill:
-			'Integrated installation view: dual displays, Kinect tracking, directional speaker assembly and control electronics.'
+			'The completed installation brings the dual-display visual system, viewer tracking, directional speaker and physical control system into a single viewer experience.'
 	};
 
 	onMount(() => {
@@ -45,16 +43,16 @@
 </script>
 
 <svelte:head>
-	<title>VOID-A — 0seconds</title>
-	<meta name="description" content="VOID-A (보이다), an interactive audiovisual installation from 2023." />
+	<title>VOID-a — 0seconds</title>
+	<meta name="description" content="VOID-a (보이다), an interactive audiovisual installation from 2023." />
 </svelte:head>
 
 <main class="project-page" lang="en">
 	<article>
 		<header class="opening">
 			<div class="opening-copy">
-				<p class="archive-name">VOID-A</p>
-				<h1 lang="ko">보이다</h1>
+				<h1>VOID-a</h1>
+				<p class="subtitle" lang="ko">보이다</p>
 				<p class="format">Interactive audiovisual installation</p>
 				<p class="opening-details">Dual-display real-time visuals, viewer tracking,<br />{' '}custom parametric directional speaker, 2023</p>
 				<p class="play-note">Play with sound. Around 4–6 seconds, a passerby crosses the speaker’s path and the recorded sound briefly drops.</p>
@@ -63,7 +61,7 @@
 				<video
 					src="/media/portfolio/void-a/void-a-primary-result.mp4"
 					poster="/media/portfolio/void-a/void-a-primary-poster.jpg"
-					aria-label="VOID-A installation and directional sound documentation"
+					aria-label="VOID-a installation and directional sound documentation"
 					controls
 					playsinline
 					preload="metadata"
@@ -174,7 +172,7 @@
 					<figure class="body-media installation-video">
 						<video
 							src="/media/portfolio/void-a/void-a-viewer-experience.mp4"
-							aria-label="Third-person view of a viewer entering and moving through the VOID-A installation"
+							aria-label="Third-person view of a viewer entering and moving through the VOID-a installation"
 							muted
 							autoplay
 							loop
@@ -189,10 +187,6 @@
 						<p class="copy-rail">{copy.installation}</p>
 					</div>
 				</div>
-				<figure class="body-media installation-still">
-					<img src="/media/portfolio/void-a/void-a-installation-view.jpg" alt="Two angled displays above the directional speaker assembly and exposed electronics" width="1851" height="3001" loading="lazy" />
-					<figcaption>{copy.installationStill}</figcaption>
-				</figure>
 			</div>
 		</section>
 
@@ -200,14 +194,10 @@
 			<div class="section-heading">
 				<h2 id="information-title">Project information</h2>
 			</div>
-			<dl>
-				<div><dt>Year</dt><dd>2023</dd></div>
-				<div><dt>Format</dt><dd>Interactive audiovisual installation</dd></div>
-				<div>
-					<dt>Systems</dt>
-					<dd>TouchDesigner<br />Kinect / viewer tracking<br />Dual-display real-time visual system<br />Custom parametric ultrasonic speaker<br />Servo directional control<br />Ableton Live</dd>
-				</div>
-			</dl>
+			<div class="project-facts">
+				<p>2023<br />Interactive audiovisual installation</p>
+				<p class="project-systems">TouchDesigner · Kinect / viewer tracking<br />Dual-display real-time visual system<br />Custom parametric ultrasonic speaker<br />Servo directional control · Ableton Live</p>
+			</div>
 		</section>
 	</article>
 </main>
@@ -242,17 +232,18 @@
 	video { background: #e5e4e0; }
 
 	.opening {
-		max-width: 1160px;
+		max-width: 1020px;
+		margin: 0 auto;
 		display: grid;
 		grid-template-columns: minmax(0, 0.58fr) minmax(0, 1fr);
-		gap: clamp(36px, 7vw, 100px);
+		gap: clamp(30px, 4vw, 58px);
 		align-items: center;
 	}
 	.opening-copy { min-width: 0; }
-	.archive-name { margin-bottom: 8px; font-size: 12px; letter-spacing: .08em; }
-	.opening h1 { margin-bottom: 12px; font-size: clamp(38px, 6vw, 76px); font-weight: 400; letter-spacing: -.055em; line-height: 1; }
+	.opening h1 { margin-bottom: 2px; font-size: clamp(40px, 5.5vw, 72px); font-weight: 400; letter-spacing: -.055em; line-height: 1; }
+	.subtitle { margin: 0 0 22px; font-size: clamp(21px, 2.4vw, 30px); font-weight: 400; letter-spacing: -.035em; line-height: 1.2; }
 	.format { margin-bottom: 4px; font-size: clamp(16px, 1.5vw, 20px); }
-	.opening-details { margin-bottom: 0; color: var(--page-muted); font-size: 14px; line-height: 1.55; }
+	.opening-details { margin-bottom: 0; color: var(--page-muted); font-size: 16px; line-height: 1.55; }
 	.play-note { margin: 18px 0 0; color: var(--page-muted); font-size: 13px; line-height: 1.55; }
 	.primary-media { width: min(100%, 720px); justify-self: end; }
 	.primary-media video { background: #111; }
@@ -262,47 +253,47 @@
 	.text-section,
 	.content-section,
 	.project-information {
-		display: grid;
-		grid-template-columns: 180px minmax(0, 1fr);
-		gap: clamp(24px, 5vw, 84px);
+		max-width: 1220px;
+		margin-left: auto;
+		margin-right: auto;
 	}
 
-	.about { margin-top: clamp(72px, 10vw, 132px); }
-	.content-section { margin-top: clamp(112px, 17vw, 216px); }
+	.about { margin-top: clamp(82px, 10vw, 132px); }
+	.content-section { margin-top: clamp(104px, 12vw, 164px); }
 	.section-heading h2,
 	.about h2,
 	.project-information h2 { margin: 0; font-size: clamp(22px, 2.3vw, 32px); font-weight: 400; letter-spacing: -.035em; line-height: 1.12; }
-	.section-heading > p { margin: 9px 0 0; color: var(--page-muted); font-size: 13px; }
+	.section-heading { margin-bottom: 22px; }
+	.about h2 { margin-bottom: 22px; }
+	.section-heading > p { margin: 9px 0 0; color: var(--page-muted); font-size: 15px; }
 	.section-body { min-width: 0; }
 	.copy-rail { max-width: 720px; }
 	.copy-rail p,
 	.section-body > p { margin-bottom: 18px; font-size: clamp(15px, 1.3vw, 17px); line-height: 1.72; }
-	.body-media { max-width: 1080px; margin-top: 44px; }
-	.split-view img { width: auto; max-width: 100%; max-height: 64vh; margin: 0 auto; }
-	.paired-media { max-width: 900px; }
-	.media-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(14px, 2.4vw, 32px); align-items: center; }
+	.body-media { max-width: 1080px; margin: 38px 0 0; }
+	.split-view { margin-top: 34px; }
+	.split-view img { width: auto; max-width: 100%; max-height: 66vh; margin: 0; }
+	.paired-media { max-width: 900px; margin-top: 30px; }
+	.media-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(14px, 2vw, 26px); align-items: center; }
 	.media-pair img { width: auto; max-width: 100%; max-height: 43vh; margin: 0 auto; }
-	.motion-media { max-width: 720px; margin-top: 60px; }
-	.motion-media video { width: auto; max-width: 100%; max-height: 54vh; margin: 0 auto; }
-	.development { margin-top: clamp(104px, 13vw, 168px); }
-	.development-media { max-width: 900px; }
-	.development-media video { width: auto; max-width: 100%; max-height: 48vh; margin: 0 auto; }
-	.installation { grid-template-columns: minmax(0, 1fr); margin-top: clamp(132px, 19vw, 240px); }
+	.motion-media { max-width: 540px; margin-top: 44px; }
+	.motion-media video { width: auto; max-width: 100%; max-height: 50vh; margin: 0; }
+	.development { margin-top: clamp(96px, 10vw, 136px); }
+	.development-media { max-width: 820px; margin-top: 28px; }
+	.development-media video { width: auto; max-width: 100%; max-height: 48vh; margin: 0; }
+	.installation { margin-top: clamp(148px, 17vw, 212px); }
 	.installation .section-body { max-width: 1080px; }
-	.installation-feature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 0.72fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
+	.installation-feature { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 0.72fr); gap: clamp(30px, 4vw, 58px); align-items: center; }
 	.installation-video { margin-top: 0; }
-	.installation-video video { width: auto; max-width: 100%; max-height: 66vh; margin: 0 auto; }
+	.installation-video video { width: auto; max-width: 100%; max-height: 66vh; margin: 0; }
 	.installation-copy h2 { margin: 0 0 20px; font-size: clamp(22px, 2.3vw, 32px); font-weight: 400; letter-spacing: -.035em; line-height: 1.12; }
 	.installation-copy .copy-rail { max-width: 480px; }
 	.installation-copy p { margin-bottom: 0; }
-	.installation-still { max-width: 920px; margin-top: 48px; }
-	.installation-still img { width: auto; max-width: 100%; max-height: 62vh; margin: 0 auto; }
-	.installation-still figcaption { max-width: 38.2vh; margin: 10px auto 0; }
-	.project-information { margin-top: clamp(112px, 16vw, 196px); padding-top: 20px; border-top: 1px solid var(--page-rule); }
-	.project-information dl { margin: 0; }
-	.project-information dl > div { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 20px; padding: 0 0 10px; }
-	.project-information dt { color: var(--page-muted); }
-	.project-information dd { margin: 0; font-size: 14px; line-height: 1.5; }
+	.project-information { margin-top: clamp(96px, 10vw, 132px); padding-top: 18px; border-top: 1px solid var(--page-rule); }
+	.project-information .section-heading { margin-bottom: 18px; }
+	.project-facts { max-width: 840px; font-size: 14px; line-height: 1.5; }
+	.project-facts p { margin: 0; }
+	.project-facts .project-systems { margin-top: 16px; }
 
 	@media (max-width: 700px) {
 		.project-page { width: min(100% - 32px, 1440px); padding-top: 24px; }
@@ -312,24 +303,21 @@
 		.opening-details br { display: none; }
 		.text-section,
 		.content-section,
-		.project-information { grid-template-columns: 1fr; gap: 18px; }
+		.project-information { display: block; }
 		.about { margin-top: 76px; }
-		.content-section { margin-top: 104px; }
-		.development { margin-top: 104px; }
-		.installation { margin-top: 128px; }
+		.content-section { margin-top: 88px; }
+		.development { margin-top: 88px; }
+		.installation { margin-top: 120px; }
 		.media-pair { grid-template-columns: 1fr; gap: 22px; }
 		.media-pair img,
 		.split-view img,
 		.motion-media video,
 		.development-media video,
-		.installation-video video,
-		.installation-still img { width: 100%; max-height: none; }
+		.installation-video video { width: 100%; max-height: none; }
 		.installation-feature { grid-template-columns: 1fr; gap: 24px; }
 		.installation-copy { grid-row: 1; }
-		.installation-still figcaption { max-width: none; }
 		.body-media { margin-top: 32px; }
 		.motion-media { margin-top: 44px; }
-		.project-information { margin-top: 104px; }
-		.project-information dl > div { grid-template-columns: 82px minmax(0, 1fr); gap: 16px; }
+		.project-information { margin-top: 88px; }
 	}
 </style>
