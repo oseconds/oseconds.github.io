@@ -47,7 +47,7 @@
 					관객 위치가 시점 변화를 실시간으로 만들었는지는 미확정이다.
 				</p>
 
-				<figure class="media-wide">
+				<figure class="media-standard">
 					<img
 						src="/media/portfolio/void-a/void-a-anamorphic-viewpoint-td.webp"
 						alt="TouchDesigner 시점 실험 화면에서 정면의 형태와 비스듬한 외부 시점이 함께 보인다"
@@ -59,7 +59,7 @@
 					</figcaption>
 				</figure>
 
-				<figure class="media-medium">
+				<figure class="media-standard">
 					<video
 						src="/media/portfolio/void-a/void-a-viewpoint-reveal-t00.000-t09.000.mp4"
 						aria-label="특정 관찰 위치에 따라 두 화면의 이미지가 합쳐지거나 분리되는 물리적 시점 시연"
@@ -76,7 +76,7 @@
 					</figcaption>
 				</figure>
 
-				<figure class="media-medium">
+				<figure class="media-standard">
 					<img
 						src="/media/portfolio/void-a/void-a-blender-projection-test-b.webp"
 						alt="Blender에서 이미지와 공간 geometry의 투영 관계를 시험한 화면"
@@ -88,7 +88,7 @@
 					</figcaption>
 				</figure>
 
-				<figure class="media-medium">
+				<figure class="media-standard">
 					<img
 						src="/media/portfolio/void-a/void-a-lost-final-slide-02.webp"
 						alt="발표 자료 2번 슬라이드에 사용된 TouchDesigner 제작 과정 화면, 미실행 오류 표시 포함"
@@ -192,7 +192,7 @@
 			<div class="chapter-content">
 				<h2 id="installation-title">Installation / motion</h2>
 				<p class="transition">다시, 화면 속 존재와 마주한다.</p>
-				<figure class="media-wide">
+				<figure class="media-standard">
 					<video
 						src="/media/portfolio/void-a/void-a-main-excerpt-t10.300-t19.800.mp4"
 						poster="/media/portfolio/void-a/void-a-frame-t10.300.webp"
@@ -401,13 +401,14 @@
 		margin: 0 0 38px;
 	}
 
-	.media-wide {
-		width: 100%;
-		margin: 0 0 54px;
+	.media-standard,
+	.parallel-model,
+	.sound-group,
+	.still-pair {
+		width: min(100%, 1080px);
 	}
 
-	.media-medium {
-		width: min(100%, 900px);
+	.media-standard {
 		margin: 0 0 54px;
 	}
 
