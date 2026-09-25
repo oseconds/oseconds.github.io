@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">VOID-A conceptual development model</title>
+  <desc id="desc">Two parallel development lanes: viewer position to moving virtual viewpoint to visual gaze; and directional or parametric sound to auditory direction experiment. This is not a confirmed final runtime architecture.</desc>
+  <!-- Source-derived conceptual diagram. Not a historical apparatus reconstruction or final runtime schematic. -->
+  <defs>
+    <marker id="arrow-visual" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#365C8D"/>
+    </marker>
+    <marker id="arrow-audio" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#9A633E"/>
+    </marker>
+    <style>
+      .eyebrow { font: 600 18px Inter, "Noto Sans", Arial, sans-serif; letter-spacing: 3px; fill: #53606D; }
+      .title { font: 600 42px Inter, "Noto Sans", Arial, sans-serif; letter-spacing: -0.5px; fill: #18222C; }
+      .subtitle { font: 400 21px Inter, "Noto Sans", Arial, sans-serif; fill: #65717C; }
+      .lane-label { font: 700 17px Inter, "Noto Sans", Arial, sans-serif; letter-spacing: 2.5px; }
+      .lane-note { font: 400 17px Inter, "Noto Sans", Arial, sans-serif; fill: #6D7882; }
+      .node { font: 600 22px Inter, "Noto Sans", Arial, sans-serif; fill: #18222C; }
+      .node-small { font: 600 19px Inter, "Noto Sans", Arial, sans-serif; fill: #18222C; }
+      .center-note { font: 600 15px Inter, "Noto Sans", Arial, sans-serif; letter-spacing: 1.5px; fill: #6D7882; }
+      .caveat { font: 500 17px Inter, "Noto Sans", Arial, sans-serif; fill: #48545F; }
+      .caveat-small { font: 400 15px Inter, "Noto Sans", Arial, sans-serif; fill: #77818A; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#F8F7F3"/>
+
+  <text x="120" y="88" class="eyebrow">보이다 / DEVELOPMENT MODEL</text>
+  <text x="120" y="148" class="title">Two parallel development directions</text>
+  <text x="120" y="188" class="subtitle">A conceptual development model — not a final runtime schematic</text>
+  <line x1="120" y1="230" x2="1480" y2="230" stroke="#D9DDE0" stroke-width="2"/>
+
+  <!-- Visual lane: the only edges are within this lane. -->
+  <text x="120" y="292" class="lane-label" fill="#365C8D">VISUAL LANE</text>
+  <text x="120" y="324" class="lane-note">viewer position and visual gaze</text>
+
+  <rect x="120" y="382" width="300" height="128" rx="16" fill="#EAF0F7" stroke="#9EB4CD" stroke-width="2"/>
+  <text x="270" y="457" text-anchor="middle" class="node">viewer position</text>
+
+  <line x1="420" y1="446" x2="520" y2="446" stroke="#365C8D" stroke-width="4" marker-end="url(#arrow-visual)"/>
+
+  <rect x="560" y="382" width="360" height="128" rx="16" fill="#EAF0F7" stroke="#9EB4CD" stroke-width="2"/>
+  <text x="740" y="438" text-anchor="middle" class="node-small">moving virtual</text>
+  <text x="740" y="468" text-anchor="middle" class="node-small">viewpoint</text>
+
+  <line x1="920" y1="446" x2="1020" y2="446" stroke="#365C8D" stroke-width="4" marker-end="url(#arrow-visual)"/>
+
+  <rect x="1060" y="382" width="300" height="128" rx="16" fill="#EAF0F7" stroke="#9EB4CD" stroke-width="2"/>
+  <text x="1210" y="457" text-anchor="middle" class="node">visual gaze</text>
+
+  <!-- Audio lane: the only edge is within this lane. -->
+  <text x="120" y="670" class="lane-label" fill="#9A633E">AUDIO LANE</text>
+  <text x="120" y="702" class="lane-note">directional sound and auditory direction</text>
+
+  <rect x="120" y="760" width="420" height="128" rx="16" fill="#F5EDE7" stroke="#D2AC92" stroke-width="2"/>
+  <text x="330" y="816" text-anchor="middle" class="node-small">directional / parametric</text>
+  <text x="330" y="846" text-anchor="middle" class="node-small">sound</text>
+
+  <line x1="540" y1="824" x2="660" y2="824" stroke="#9A633E" stroke-width="4" marker-end="url(#arrow-audio)"/>
+
+  <rect x="700" y="760" width="420" height="128" rx="16" fill="#F5EDE7" stroke="#D2AC92" stroke-width="2"/>
+  <text x="910" y="835" text-anchor="middle" class="node-small">auditory direction experiment</text>
+
+  <line x1="120" y1="932" x2="1480" y2="932" stroke="#D9DDE0" stroke-width="2"/>
+  <text x="120" y="966" class="caveat">Conceptual development model — final runtime linkages remain unresolved.</text>
+</svg>
