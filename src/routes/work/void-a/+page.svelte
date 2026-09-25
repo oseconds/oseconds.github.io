@@ -4,21 +4,25 @@
 	const copy = {
 		about: [
 			'VOID-a explores a reversal between seeing and being seen.',
-			'The viewer looks at the work, while the work appears to return that gaze. An eye-like form gives the screen object a minimal sense of presence.'
+			'The viewer looks at the work, while the work appears to return that gaze. An eye-like form gives the screen object a minimal sense of presence.',
+			'This relation unfolds through two connected forms of gaze: one through perspective, the other through sound.'
 		],
 		visual: [
 			'Anamorphosis usually depends on a fixed viewing position.',
-			'VOID-a instead explores a moving virtual viewpoint, using two displays to construct a shared virtual space whose perspective shifts across different points of view.'
+			'VOID-a instead explores a moving virtual viewpoint, using two displays to construct a shared virtual space whose perspective can shift rather than remain fixed.'
 		],
 		auditory: [
-			'The same relationship is extended through sound.',
-			'A custom parametric speaker concentrates sound into a narrow direction. Kinect tracks the viewer’s position, TouchDesigner calculates the target direction, and a servo physically aims the speaker toward the viewer.'
+			'The same relation extends into sound.',
+			'A custom parametric speaker concentrates sound into a narrow direction rather than dispersing it broadly through the room.',
+			'Kinect tracks the viewer’s position, TouchDesigner calculates the target direction, and a servo physically aims the speaker toward the viewer.'
 		],
 		audioSystem: 'Modulation circuit and installed directional speaker assembly.',
 		development:
-			'Realtime image generation was explored as part of the visual system, applying generated textures directly to moving 3D geometry in TouchDesigner.',
-		installation:
-			'The installation brings together real-time visuals, viewer tracking, and directional sound as a single spatial encounter.'
+			'Realtime image generation was explored as part of the visual system, with generated textures applied directly to moving 3D geometry in TouchDesigner.',
+		installation: [
+			'In the installation, perspective and sound converge on the viewer.',
+			'Real-time visuals, tracking, and directional audio turn a reactive system into an encounter that appears to look — and listen — back.'
+		]
 	};
 
 	onMount(() => {
@@ -53,7 +57,7 @@
 				<h1>VOID-a</h1>
 				<p class="subtitle" lang="ko">보이다</p>
 				<p class="format">Interactive audiovisual installation</p>
-				<p class="opening-details">Dual-display real-time visuals, viewer tracking,<br />{' '}custom parametric directional speaker, 2023</p>
+				<p class="opening-details">Dual-display real-time visuals · Viewer tracking<br />Custom parametric directional speaker · 2023</p>
 				<p class="play-note">Play with sound.<br />Around 4–6 seconds, a passerby crosses the speaker’s path and the sound briefly drops.</p>
 			</div>
 			<figure class="primary-media">
@@ -78,8 +82,9 @@
 		<section class="text-section about" aria-labelledby="about-title">
 			<h2 id="about-title">ABOUT</h2>
 			<div class="copy-rail">
-				<p>{copy.about[0]}</p>
-				<p>{copy.about[1]}</p>
+				{#each copy.about as paragraph}
+					<p>{paragraph}</p>
+				{/each}
 			</div>
 		</section>
 
@@ -111,8 +116,9 @@
 						<h2 id="auditory-title">AUDITORY GAZE</h2>
 						<p>Directional sound</p>
 					</div>
-					<p>{copy.auditory[0]}</p>
-					<p>{copy.auditory[1]}</p>
+					{#each copy.auditory as paragraph}
+						<p>{paragraph}</p>
+					{/each}
 				</div>
 				<figure class="servo-media">
 					<video
@@ -177,7 +183,9 @@
 					</figure>
 					<div class="installation-copy">
 						<h2 id="installation-title">INSTALLATION</h2>
-						<p class="copy-rail">{copy.installation}</p>
+						{#each copy.installation as paragraph}
+							<p class="copy-rail">{paragraph}</p>
+						{/each}
 					</div>
 				</div>
 			</div>
@@ -185,7 +193,7 @@
 
 		<section class="project-information" aria-labelledby="information-title">
 			<div class="section-heading">
-				<h2 id="information-title">PROJECT INFORMATION</h2>
+				<h2 id="information-title">Project information</h2>
 			</div>
 			<div class="project-facts">
 				<p>2023<br />Interactive audiovisual installation</p>
@@ -246,6 +254,13 @@
 	.primary-media { width: 100%; justify-self: end; }
 	.primary-media video { background: #111; }
 	.primary-media video { width: auto; max-width: 100%; max-height: 74vh; margin-left: auto; }
+	@media (min-width: 1120px) {
+		.opening {
+			width: min(calc(100% + 50px), 1090px);
+			margin-inline: -25px;
+			grid-template-columns: 400px minmax(0, 1fr);
+		}
+	}
 	figcaption { margin-top: 10px; color: var(--page-muted); font-size: 13px; line-height: 1.55; }
 
 	.text-section,
@@ -310,17 +325,18 @@
 	.installation-video video { width: 100%; max-width: none; max-height: none; margin: 0; }
 	.installation-copy h2 { margin: 0 0 20px; font-size: clamp(22px, 2.3vw, 32px); font-weight: 400; letter-spacing: -.035em; line-height: 1.12; }
 	.installation-copy .copy-rail { max-width: 650px; }
-	.installation-copy p { margin-bottom: 0; }
-	.project-information { margin-top: clamp(68px, 7.5vw, 100px); padding-top: 18px; border-top: 1px solid var(--page-rule); }
+	.installation-copy p:not(:last-child) { margin-bottom: 16px; }
+	.installation-copy p:last-child { margin-bottom: 0; }
+	.project-information { width: min(100%, 960px); margin-top: clamp(68px, 7.5vw, 100px); }
 	.project-information .section-heading { margin-bottom: 18px; }
 	.project-facts {
-		width: min(100%, 760px);
+		width: 100%;
 		max-width: none;
 		display: grid;
-		grid-template-columns: 232px minmax(0, 1fr);
-		column-gap: 64px;
-		font-size: 15px;
-		line-height: 1.62;
+		grid-template-columns: 260px minmax(0, 1fr);
+		column-gap: 80px;
+		font-size: 14px;
+		line-height: 1.55;
 	}
 	.project-facts p { margin: 0; }
 	.project-facts .project-systems { margin-top: 0; }
