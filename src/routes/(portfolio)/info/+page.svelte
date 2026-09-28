@@ -37,6 +37,12 @@
 					<time datetime="2023">2023</time>
 					<a href="/work/void-a">VOID-A</a>
 				</li>
+			</ul>
+		</section>
+
+		<section class="info-section" aria-labelledby="selected-contributions-title">
+			<h2 id="selected-contributions-title">Selected Contributions</h2>
+			<ul class="work-records">
 				<li>
 					<time datetime="2026">2026</time>
 					<div>

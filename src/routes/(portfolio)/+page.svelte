@@ -19,48 +19,75 @@
 	</header>
 
 	<section class="selected-work" aria-labelledby="selected-work-title">
-		<h2 id="selected-work-title">Selected work</h2>
+		<div class="section-heading">
+			<h2 id="selected-work-title">Selected work</h2>
+			<a href="/work">All work <span aria-hidden="true">↗</span></a>
+		</div>
 
 		<div class="work-sequence">
 			<article class="work-entry work-entry--void">
-				<a class="void-media" href="/work/void-a">
+				<a class="entry-media void-media" href="/work/void-a" aria-label="Explore VOID-A">
 					<img
 						src="/media/portfolio/void-a/void-a-primary-poster.jpg"
-						alt="VOID-A installation documentation"
+						alt="VOID-A installation with an eye-like form across two displays"
+						width="720"
+						height="900"
 					/>
 				</a>
 				<div class="entry-details">
+					<p class="entry-index">01 / Installation</p>
 					<div class="entry-heading">
 						<h3>VOID-A</h3>
 						<time datetime="2023">2023</time>
 					</div>
 					<p class="entry-type">Interactive Installation / Realtime Visuals / Directional Sound</p>
-					<a class="project-link" href="/work/void-a">Explore VOID-A</a>
+					<a class="project-link" href="/work/void-a">Explore VOID-A <span aria-hidden="true">↗</span></a>
 				</div>
 			</article>
 
-			<article class="work-entry work-entry--minotaur">
-				<h3>Minotaur Series</h3>
-				<p class="entry-type">Acrylic Painting · Blender · Generative AI</p>
-			</article>
-
-			<article class="work-entry work-entry--masio">
-				<div class="entry-details">
+			<article class="work-entry work-entry--robot">
+				<a class="entry-media robot-media" href="/work/robot-painting-system" aria-label="Explore Robot Painting System">
+					<img
+						src="/media/portfolio/robot-painting-system/image4.jpg"
+						alt="Colorful painting produced by the robot painting system"
+						width="1416"
+						height="1374"
+						loading="lazy"
+					/>
+				</a>
+				<div class="entry-details robot-details">
+					<p class="entry-index">02 / Physical computing</p>
 					<div class="entry-heading">
-						<h3>MASIO @ Seoul Community Radio</h3>
-						<time datetime="2023">2023</time>
+						<h3>Robot Painting System</h3>
+						<time datetime="2022">2022</time>
 					</div>
-					<p class="entry-type">Realtime Audio-Reactive Visuals</p>
+					<p class="entry-type">Robotic Painting / Physical Computing</p>
+					<a class="project-link" href="/work/robot-painting-system">Explore the work <span aria-hidden="true">↗</span></a>
 				</div>
 			</article>
 
-			<article class="work-entry work-entry--oumt">
+			<article class="work-entry work-entry--gaze">
+				<figure class="gaze-media">
+					<!-- svelte-ignore a11y_media_has_caption: the archived platform copy has no verified caption source -->
+					<video
+						src="/media/portfolio/if-you-gaze/AQOwlujb0Js5kK7GF6DJMSfJF6Uk6m-dKe4LWEVc28KWtZHFd5vE-9IrlkdDSznc8ZK2O37Q6_HlxKOylVnOPHk.mp4"
+						poster="/media/portfolio/if-you-gaze/496626927_3520912781377923_7866999277964543427_n.jpg"
+						aria-label="If you gaze video, an owner-downloaded platform copy"
+						width="426"
+						height="340"
+						controls
+						playsinline
+						preload="none"
+					></video>
+				</figure>
 				<div class="entry-details">
+					<p class="entry-index">03 / Moving image</p>
 					<div class="entry-heading">
-						<h3>OUMTT — 인간전시 空</h3>
-						<time datetime="2026">2026</time>
+						<h3>If you gaze</h3>
+						<time datetime="2022">2022</time>
 					</div>
-					<p class="entry-type">Media video production for STUDIO ARTECH</p>
+					<p class="entry-type">Moving Image / Generative AI / Sound</p>
+					<a class="project-link" href="/work/if-you-gaze">Explore the work <span aria-hidden="true">↗</span></a>
 				</div>
 			</article>
 		</div>
@@ -108,42 +135,88 @@
 		margin-top: clamp(88px, 13vw, 176px);
 	}
 
-	.selected-work > h2 {
-		margin: 0 0 clamp(36px, 5vw, 64px);
+	.section-heading {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 24px;
+		margin-bottom: clamp(36px, 5vw, 64px);
+	}
+
+	.section-heading h2 {
+		margin: 0;
 		font-size: clamp(21px, 2.2vw, 30px);
 		font-weight: 400;
 		letter-spacing: -0.035em;
 	}
 
+	.section-heading a,
+	.project-link {
+		color: inherit;
+		font-size: 14px;
+		text-underline-offset: 4px;
+	}
+
+	.section-heading a:focus-visible,
+	.project-link:focus-visible,
+	.entry-media:focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: 5px;
+	}
+
 	.work-sequence {
 		display: grid;
-		gap: clamp(96px, 14vw, 184px);
+		gap: clamp(112px, 16vw, 232px);
 	}
 
 	.work-entry {
+		display: grid;
+		align-items: center;
 		min-width: 0;
+		gap: clamp(24px, 7vw, 104px);
+	}
+
+	.entry-media,
+	.gaze-media {
+		display: block;
+		min-width: 0;
+		margin: 0;
+	}
+
+	.entry-media img,
+	.gaze-media video {
+		display: block;
+		width: 100%;
+		height: auto;
 	}
 
 	.entry-details {
 		min-width: 0;
 	}
 
+	.entry-index {
+		margin: 0 0 clamp(24px, 3vw, 44px);
+		color: var(--page-muted);
+		font-size: 12px;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
 	.entry-heading {
 		display: flex;
 		flex-wrap: wrap;
-		align-items: baseline;
 		justify-content: space-between;
+		align-items: baseline;
 		gap: 8px 20px;
 	}
 
-	.entry-heading h3,
-	.work-entry--minotaur h3 {
+	.entry-heading h3 {
 		min-width: 0;
 		margin: 0;
-		font-size: clamp(22px, 2.6vw, 34px);
+		font-size: clamp(32px, 4.5vw, 68px);
 		font-weight: 400;
-		letter-spacing: -0.045em;
-		line-height: 1.15;
+		letter-spacing: -0.06em;
+		line-height: 1.03;
 	}
 
 	.entry-heading time {
@@ -153,49 +226,65 @@
 	}
 
 	.entry-type {
-		margin: 12px 0 0;
+		margin: 18px 0 0;
 		color: var(--page-muted);
 		font-size: 15px;
 		line-height: 1.55;
 	}
 
+	.project-link {
+		display: inline-block;
+		margin-top: 26px;
+	}
+
 	.work-entry--void {
-		display: grid;
-		grid-template-columns: minmax(0, 1.2fr) minmax(240px, 0.8fr);
-		gap: clamp(24px, 7vw, 104px);
-		align-items: center;
+		grid-template-columns: minmax(0, 1fr) minmax(250px, 0.8fr);
 	}
 
 	.void-media {
-		display: block;
-		min-width: 0;
+		width: min(100%, 680px);
 	}
 
-	.void-media img {
-		display: block;
-		width: 100%;
-		height: auto;
+	.work-entry--robot {
+		grid-template-columns: minmax(250px, 0.78fr) minmax(0, 1.22fr);
 	}
 
-	.project-link {
-		display: inline-block;
-		margin-top: 20px;
-		color: inherit;
-		font-size: 14px;
-		text-underline-offset: 4px;
+	.robot-media {
+		grid-column: 2;
+		grid-row: 1;
+		width: min(100%, 720px);
+		justify-self: end;
 	}
 
-	.work-entry--minotaur h3 {
-		font-size: clamp(48px, 10vw, 136px);
-		letter-spacing: -0.075em;
-		line-height: 0.95;
+	.robot-details {
+		grid-column: 1;
+		grid-row: 1;
+		padding-bottom: clamp(0px, 4vw, 60px);
 	}
 
-	.work-entry--minotaur .entry-type {
-		margin-top: 20px;
+	.robot-details h3 {
+		max-width: 12ch;
+		font-size: clamp(42px, 5.7vw, 88px);
 	}
 
-	@media (max-width: 700px) {
+	.work-entry--gaze {
+		grid-template-columns: minmax(0, 1.05fr) minmax(250px, 0.95fr);
+	}
+
+	.gaze-media {
+		width: min(100%, 560px);
+	}
+
+	.gaze-media video {
+		aspect-ratio: 426 / 340;
+		background: #151512;
+	}
+
+	.work-entry--gaze h3 {
+		font-size: clamp(42px, 6.3vw, 92px);
+	}
+
+	@media (max-width: 800px) {
 		.home-page {
 			width: min(100% - 32px, 1440px);
 			padding-top: 44px;
@@ -207,7 +296,7 @@
 		}
 
 		.identity h1 {
-			font-size: clamp(64px, 18vw, 96px);
+			font-size: clamp(64px, 18vw, 110px);
 		}
 
 		.introduction-copy {
@@ -219,16 +308,76 @@
 		}
 
 		.work-sequence {
-			gap: 104px;
+			gap: clamp(92px, 16vw, 144px);
 		}
 
-		.work-entry--void {
+		.work-entry,
+		.work-entry--void,
+		.work-entry--robot,
+		.work-entry--gaze {
 			grid-template-columns: minmax(0, 1fr);
-			gap: 24px;
+			gap: 25px;
 		}
 
-		.work-entry--minotaur h3 {
-			font-size: clamp(48px, 13vw, 82px);
+		.robot-media,
+		.robot-details {
+			grid-column: auto;
+			grid-row: auto;
+		}
+
+		.robot-media {
+			justify-self: end;
+			width: min(86%, 580px);
+		}
+
+		.robot-details {
+			padding-bottom: 0;
+		}
+
+		.void-media {
+			width: min(80%, 500px);
+		}
+
+		.gaze-media {
+			width: min(92%, 560px);
+		}
+
+		.entry-index {
+			margin-bottom: 15px;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.identity h1 {
+			font-size: clamp(60px, 18vw, 82px);
+		}
+
+		.section-heading {
+			align-items: center;
+		}
+
+		.work-entry--void .entry-heading h3 {
+			font-size: 43px;
+		}
+
+		.robot-details h3 {
+			font-size: clamp(42px, 12vw, 62px);
+		}
+
+		.work-entry--gaze h3 {
+			font-size: clamp(42px, 12vw, 62px);
+		}
+
+		.void-media {
+			width: 86%;
+		}
+
+		.robot-media {
+			width: 100%;
+		}
+
+		.gaze-media {
+			width: 100%;
 		}
 	}
 </style>
