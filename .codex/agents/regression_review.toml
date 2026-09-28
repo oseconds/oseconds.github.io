@@ -24,11 +24,19 @@ CHECK
 - Svelte or TypeScript correctness issues
 - broken imports
 - broken routes or static asset paths
-- SvelteKit static-build incompatibilities
+- SvelteKit static adapter or prerender incompatibilities
+- violations of the `src/routes/(portfolio)/` route-group boundary
+- portfolio navigation leaking into Canvas routes
+- diffs that unintentionally change the distinct roles of Work, Archive, Live, or Info
+- regressions to the existing `/work/void-a` page or its presentation
 - responsive layout regressions
+- responsive overflow
 - obvious accessibility regressions
 - duplicated component logic introduced unnecessarily
 - accidental media distortion or inappropriate cropping
+- media path or aspect-ratio regressions
+- premature portfolio abstractions, including dynamic `[slug]` routes, registries, CMS/content collections, archive manifests, or generic component/data systems
+- unsupported inferences or changes to provenance, approval, visibility, or publication semantics
 - accidental changes to Canvas Preview boundaries
 - accidental changes to deployment or publication behavior
 - unrelated or overly broad changes
@@ -39,6 +47,7 @@ Canvas Preview should remain independently namespaced under:
 - src/lib/canvas/
 - src/routes/canvas-preview/
 - src/routes/canvas/
+- docs/canvas-preview.adoc
 
 Do not treat existing unrelated technical debt as a regression caused by the current diff.
 

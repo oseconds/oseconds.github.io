@@ -1,62 +1,83 @@
 # 0seconds Portfolio
 
+## Repository role
+
 This repository is the SvelteKit presentation and publication layer for 0seconds. It also hosts standalone web experiments.
 
-## Default Scope
+Portfolio source content and curation have their canonical source in `oseconds/knowledge-workspace`. This repository presents approved input; do not independently reinterpret raw evidence or change visibility, approval, or publication meaning.
 
-Portfolio work is the default scope.
+## Portfolio boundary and routes
 
-Build and extend the portfolio through the root site routes and portfolio-specific library code.
+Portfolio work is the default scope. Build and extend it under `src/routes/(portfolio)/`, with portfolio-specific code in `src/lib/` and portfolio-specific media under `static/media/` as needed.
 
-Canvas Preview is an existing standalone experiment and is out of scope by default.
+`src/routes/(portfolio)/` owns the portfolio shell and navigation. The root `src/routes/+layout.svelte` and `+layout.ts` remain app-wide; keep portfolio navigation inside the route group so it does not appear on Canvas routes.
 
-Do not inspect, search, refactor, reorganize, or modify Canvas-specific code during portfolio work unless one of the following is true:
+Current public information architecture:
 
-- the user explicitly asks for Canvas work;
-- a portfolio change directly depends on shared code that requires checking Canvas compatibility;
-- a build, route, or global configuration change creates a concrete regression risk for Canvas.
+- `/` — portfolio entry and selected highlights
+- `/work` — major works and case studies that need explanation
+- `/archive` — image-led visual archive and selected visual material
+- `/live` — VJ, realtime audiovisual, and live performance work
+- `/info` — About, selected history/CV, links, and contact
 
-When one of these exceptions applies, inspect only the minimum Canvas-related context required for the task.
+Current route structure:
 
-## Boundaries
+```text
+src/routes/
+├─ +layout.svelte
+├─ +layout.ts
+├─ (portfolio)/
+│  ├─ +layout.svelte
+│  ├─ +page.svelte
+│  ├─ work/
+│  │  ├─ +page.svelte
+│  │  └─ void-a/+page.svelte
+│  ├─ archive/+page.svelte
+│  ├─ live/+page.svelte
+│  └─ info/+page.svelte
+├─ canvas-preview/
+└─ canvas/
+```
 
-Canvas Preview is independently namespaced under:
+These section roles describe the current direction; they do not authorize pre-emptive generic schemas, registries, or CMS infrastructure. Preserve the existing `/work/void-a` route and its presentation unless the task explicitly concerns it.
+
+## Canvas boundary
+
+Canvas Preview is a standalone experiment and is out of scope by default. Its independent namespace is:
 
 - `src/lib/canvas/`
 - `src/routes/canvas-preview/`
 - `src/routes/canvas/`
 - `docs/canvas-preview.adoc`
 
-Do not restructure, merge, redesign, or reuse Canvas internals for the portfolio unless explicitly requested.
+Do not inspect, search, refactor, reorganize, or modify Canvas-specific code during portfolio work unless one of the following applies:
 
-Do not treat existing Canvas patterns as the default architecture for new portfolio code.
+- the user explicitly asks for Canvas work;
+- a portfolio change directly depends on shared code and requires a compatibility check;
+- a route, build, or global configuration change creates a concrete regression risk for Canvas.
 
-Portfolio source content and curation originate in `oseconds/knowledge-workspace`.
+When an exception applies, inspect only the minimum Canvas-related context needed. Keep portfolio and Canvas as independent presentation boundaries. Portfolio shell and navigation must not apply to Canvas routes. Do not restructure, merge, redesign, or reuse Canvas internals for the portfolio, and do not treat Canvas patterns as the default for portfolio code.
 
-Treat material brought into this repository as presentation input. Do not independently reinterpret raw production evidence or change approval, visibility, or publication meaning.
+## Content handling
 
-## Implementation
+Work, Archive, and Live have distinct presentation roles. Do not independently reclassify work or move it between sections; follow source curation and approval. Use provenance-sensitive information—including media, dates, roles, authorship, credits, and project status—only to the extent supported by the source. If information is insufficient, report the gap instead of inferring it.
 
-Preserve the existing SvelteKit, Svelte 5, TypeScript, and static-adapter setup unless a task requires changing it.
+## Architecture and implementation
 
-Prefer the smallest working diff and follow existing project patterns.
-
-Create portfolio-specific code independently from Canvas-specific code unless a genuinely shared requirement has been demonstrated.
-
-Extract shared components only from demonstrated repeated needs rather than designing a large generic system up front.
-
-Keep artwork and media visually dominant over interface chrome.
-
-Preserve source aspect ratios unless an intentional crop is explicitly part of the task.
-
-Do not change deployment or publication behavior unless explicitly requested.
-
-Avoid unrelated cleanup, migration, formatting, or architectural work.
+- Preserve the existing SvelteKit, Svelte 5, TypeScript, and `adapter-static` setup.
+- Prefer the smallest working diff and preserve the `(portfolio)` route-group boundary.
+- Do not introduce dynamic `[slug]` routes, CMS/content collections, registries, archive manifests, or generic data schemas before an actual need is established.
+- Extract shared components only after demonstrated repetition; avoid generic card/grid systems without a repeated requirement.
+- Keep artwork and media visually dominant over interface chrome.
+- Preserve source aspect ratios; crop only when the task explicitly calls for an intentional crop.
+- Preserve accessibility and responsive behavior.
+- Do not change deployment or publication behavior unless explicitly requested.
+- Avoid unrelated cleanup, migration, formatting, or architectural work.
 
 ## Verification
 
-For substantive code changes, run `npm run check`.
-
-When routes, build configuration, static paths, or deployment behavior change, also run `npm run build`.
-
-If verification reveals an issue inside Canvas that was not caused by the current portfolio change, report it separately rather than expanding the task to fix Canvas.
+- For substantive code changes, run `npm run check`.
+- When routes, static paths, build configuration, or deployment behavior change, also run `npm run build`.
+- For route or layout changes, check that portfolio and Canvas boundaries remain intact.
+- For media changes, check paths, aspect ratio, and overflow.
+- Report unrelated pre-existing issues separately; do not expand the task to fix them.

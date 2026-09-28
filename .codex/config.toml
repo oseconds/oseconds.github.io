@@ -16,9 +16,9 @@ default_subagent_reasoning_effort = "medium"
 interrupt_message = true
 
 [agents.implementation_worker]
-description = "Bounded GPT-6 Luna implementation worker for components, routes, styling, TypeScript, and small refactors within an explicitly assigned scope."
+description = "Bounded GPT-6 Luna implementation worker for explicitly scoped portfolio work in src/routes/(portfolio)/ and portfolio-specific library/media code; preserves the route-group and Canvas boundaries."
 config_file = "agents/implementation_worker.toml"
 
 [agents.regression_review]
-description = "Fresh GPT-6 Luna post-edit reviewer for Svelte, TypeScript, routes, responsive behavior, media paths, Canvas boundaries, and scope regressions."
+description = "Read-only GPT-6 Luna post-edit reviewer for the (portfolio) route group, Canvas navigation isolation, SvelteKit static routing, media, accessibility, and scope regressions."
 config_file = "agents/regression_review.toml"
