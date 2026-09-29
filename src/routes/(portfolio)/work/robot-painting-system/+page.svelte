@@ -23,7 +23,7 @@
 			<div>
 				<h2 id="idea-title">From repetition to a painted trace</h2>
 				<p>The project began with the idea of a robot repeatedly lifting a ball uphill, returning it to its starting point, and beginning again. It shifted toward a painting system: a ball carrying paint would travel across a tilted canvas, leaving a mark as the canvas turned.</p>
-				<p>The proposed controls let a visitor choose a color and decide when to act. Those timing and color choices shaped the design, though the available record does not establish how fully each interaction worked in the exhibition.</p>
+				<p>The proposed controls let a visitor choose a color and decide when to act; the available record does not establish how fully those inputs worked during the exhibition.</p>
 			</div>
 		</section>
 
@@ -32,23 +32,23 @@
 				<p class="section-index">02 / BUILDING A MOVEMENT</p>
 				<h2 id="build-title">A hand guided the arm before the arm moved on its own.</h2>
 			</div>
+			<div class="pair">
+				<figure>
+					<img src="/media/portfolio/robot-painting-system/image22.jpg" alt="Hand-guided wooden dummy arm positioned beside the wired robotic arm" width="2048" height="1536" loading="lazy" />
+					<figcaption>A wooden dummy arm alongside the wired robot</figcaption>
+				</figure>
+				<div class="build-copy">
+					<p>The arm was built around an Arduino and servo motors. To shape its path, a wooden dummy arm fitted with potentiometers could be moved by hand; the recorded angles could then guide the actual arm.</p>
+					<p>The project notes document construction, movement recording, and troubleshooting, including a servo failure on the exhibition day.</p>
+				</div>
+			</div>
 			<figure class="wide-image">
 				<img src="/media/portfolio/robot-painting-system/image19.jpg" alt="Wooden frame and articulated robotic arm under construction" width="1536" height="2048" loading="lazy" />
 				<figcaption>Constructing the arm and its frame</figcaption>
 			</figure>
-			<div class="pair">
-				<figure>
-					<img src="/media/portfolio/robot-painting-system/image17.jpg" alt="Painting system setup with robot, wiring, paint containers, and a marked surface" width="2048" height="1536" loading="lazy" />
-					<figcaption>Robot and painting setup</figcaption>
-				</figure>
-				<div class="build-copy">
-					<p>The arm was built around an Arduino and servo motors. To shape its path, a wooden dummy arm fitted with potentiometers could be moved by hand; the recorded angles could then guide the actual arm.</p>
-					<p>The project notes document the construction, movement recording, and troubleshooting, including a servo failure on the exhibition day. The photographs show stages of the setup and do not establish that every planned audience input operated as intended.</p>
-				</div>
-			</div>
-			<figure class="comparison">
-				<img src="/media/portfolio/robot-painting-system/image22.jpg" alt="Hand-guided wooden dummy arm positioned beside the wired robotic arm" width="2048" height="1536" loading="lazy" />
-				<figcaption>A wooden dummy arm alongside the wired robot</figcaption>
+			<figure class="setup-image">
+				<img src="/media/portfolio/robot-painting-system/image17.jpg" alt="Painting system setup with robot, wiring, paint containers, and a marked surface" width="2048" height="1536" loading="lazy" />
+				<figcaption>Robot and painting setup</figcaption>
 			</figure>
 		</section>
 
@@ -86,11 +86,11 @@
 	.section-head { display: grid; grid-template-columns: 1fr 1.3fr; align-items: start; gap: 40px; margin-bottom: 32px; }
 	.section-head h2 { max-width: 660px; margin: 0; font-size: clamp(32px, 4.6vw, 66px); line-height: 1.02; font-weight: 450; letter-spacing: -.055em; }
 	.wide-image { width: min(52%, 640px); margin-left: auto; }
-	.pair { display: grid; grid-template-columns: 1.2fr .8fr; align-items: center; gap: clamp(32px, 7vw, 100px); padding: 84px 0 32px; }
+	.pair { display: grid; grid-template-columns: 1.2fr .8fr; align-items: center; gap: clamp(32px, 7vw, 100px); padding: 8px 0 84px; }
 	.pair img { aspect-ratio: 4 / 3; object-fit: cover; }
 	.build-copy { max-width: 390px; }
-	.comparison { width: 61%; margin: 60px auto 140px 7%; }
-	.comparison img { aspect-ratio: 4 / 3; object-fit: cover; }
+	.setup-image { width: 61%; margin: 60px auto 140px 7%; }
+	.setup-image img { aspect-ratio: 4 / 3; object-fit: cover; }
 	.moving { display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; gap: clamp(40px, 9vw, 128px); border-top: 1px solid #c9c8c1; padding-top: 32px; }
 	.moving h2 { margin-top: 42px; }
 	.video-link { display: inline-flex; gap: 12px; margin-top: 26px; color: inherit; font-size: 13px; text-decoration-thickness: 1px; text-underline-offset: 4px; }
@@ -103,9 +103,9 @@
 		.result { width: 100%; }
 		.idea, .section-head, .moving { grid-template-columns: 1fr; gap: 22px; }
 		.idea { padding-bottom: 90px; }
-		.wide-image, .comparison { width: 100%; margin-left: 0; }
-		.pair { grid-template-columns: 1fr; gap: 22px; padding: 54px 0 18px; }
-		.comparison { margin: 44px 0 90px; }
+		.wide-image, .setup-image { width: 100%; margin-left: 0; }
+		.pair { grid-template-columns: 1fr; gap: 22px; padding: 0 0 54px; }
+		.setup-image { margin: 44px 0 90px; }
 		.moving { padding-top: 26px; }
 		.moving h2 { margin-top: 24px; }
 	}

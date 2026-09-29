@@ -26,6 +26,7 @@
 			<div class="work-copy">
 				<h2><a href="/work/void-a">VOID-A</a></h2>
 				<p>Interactive Installation / Realtime Visuals / Directional Sound</p>
+				<p class="work-description">Viewer tracking shifts the realtime visual viewpoint while a directional speaker shapes how sound is heard.</p>
 				<a class="work-link" href="/work/void-a">View project <span aria-hidden="true">↗</span></a>
 			</div>
 		</article>
@@ -44,6 +45,7 @@
 			<div class="work-copy">
 				<h2><a href="/work/robot-painting-system">Robot Painting System</a></h2>
 				<p>Robotic Painting / Physical Computing</p>
+				<p class="work-description">A robotic arm moves a paint-covered ball across a rotating canvas, translating mechanical motion into a physical painting.</p>
 				<a class="work-link" href="/work/robot-painting-system">View project <span aria-hidden="true">↗</span></a>
 			</div>
 		</article>
@@ -62,6 +64,7 @@
 			<div class="work-copy">
 				<h2><a href="/work/if-you-gaze">If you gaze</a></h2>
 				<p>Moving Image / Generative AI / Sound</p>
+				<p class="work-description">Filmed movement and generated imagery are composited into a shifting moving-image portrait with sound.</p>
 				<a class="work-link" href="/work/if-you-gaze">View project <span aria-hidden="true">↗</span></a>
 			</div>
 		</article>
@@ -175,6 +178,13 @@
 		color: var(--page-muted);
 		font-size: 15px;
 		line-height: 1.55;
+	}
+
+	.work-copy .work-description {
+		max-width: 42ch;
+		margin-top: 14px;
+		color: #3f3f3b;
+		font-size: 16px;
 	}
 
 	.work-link {

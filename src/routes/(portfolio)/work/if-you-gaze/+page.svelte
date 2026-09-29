@@ -36,7 +36,7 @@
 				<figcaption>Facebook video copy · 21.5 seconds · 426 × 340</figcaption>
 			</figure>
 			<div class="film-note">
-				<p>This preserved platform copy and the YouTube result have not been verified as the same export.</p>
+				<p>Source note: This Facebook platform copy has not been verified as the same exact export as the YouTube result.</p>
 				<a href="https://youtu.be/1QaB-1zvylU" target="_blank" rel="noreferrer">Watch the YouTube result <span aria-hidden="true">↗</span></a>
 			</div>
 		</section>
@@ -45,7 +45,6 @@
 			<div class="process-intro">
 				<p class="section-index">02 / PROCESS FRAGMENTS</p>
 				<h2 id="process-title">Images from different stages</h2>
-				<p>The following images come from separate archived feed cards. They are process references around the work, not attachments to the October 6 text post.</p>
 			</div>
 			<div class="process-grid">
 				<figure class="runway">
@@ -61,12 +60,8 @@
 					<figcaption><span>03</span> Stable Diffusion · image to image</figcaption>
 				</figure>
 			</div>
+			<p class="process-source">Source note: These three process images come from separate archived feed cards; they were not attached directly to the October 6, 2022 Facebook text post.</p>
 		</section>
-
-		<footer class="closing">
-			<p>Filmed movement, generated imagery, animation, and sound meet in a short, shifting portrait.</p>
-			<a href="https://youtu.be/1QaB-1zvylU" target="_blank" rel="noreferrer">Return to the YouTube result <span aria-hidden="true">↗</span></a>
-		</footer>
 	</article>
 </main>
 
@@ -92,9 +87,8 @@
 	.project a { color: var(--ink); text-decoration-thickness: 1px; text-underline-offset: 4px; }
 	.project a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
 	.process { border-top: 1px solid #c9c8c1; padding: 29px 0 126px; }
-	.process-intro { display: grid; grid-template-columns: .8fr 1.1fr 1fr; gap: 36px; align-items: start; margin-bottom: 58px; }
+	.process-intro { display: grid; grid-template-columns: .8fr 2.1fr; gap: 36px; align-items: start; margin-bottom: 58px; }
 	.process-intro h2 { margin: 0; }
-	.process-intro > p:last-child { max-width: 340px; margin: 4px 0 0; color: #5a5953; font-size: 14px; }
 	.process-grid { display: grid; grid-template-columns: 1.05fr .78fr 1fr; align-items: start; gap: clamp(20px, 4vw, 58px); }
 	.process-grid img { width: 100%; height: auto; }
 	.process-grid .runway { padding-top: 66px; }
@@ -102,9 +96,7 @@
 	.process-grid .stable-diffusion { padding-top: 112px; }
 	.process-grid figcaption { display: flex; gap: 11px; }
 	.process-grid figcaption span { color: var(--ink); font-variant-numeric: tabular-nums; }
-	.closing { display: flex; justify-content: space-between; align-items: end; gap: 40px; border-top: 1px solid #c9c8c1; padding-top: 28px; }
-	.closing p { max-width: 530px; margin: 0; font-size: clamp(21px, 3vw, 38px); line-height: 1.15; letter-spacing: -.04em; }
-	.closing a { flex: 0 0 auto; font-size: 13px; }
+	.process-source { max-width: 470px; margin: 38px 0 0 auto; color: var(--muted); font-size: 12px; line-height: 1.55; }
 	@media (max-width: 850px) {
 		.project { width: min(100% - 36px, 660px); padding-top: 12px; }
 		.opening { grid-template-columns: 1fr; gap: 42px; padding: 36px 0 88px; }
@@ -119,7 +111,6 @@
 		.process-grid { grid-template-columns: 1fr 1fr; gap: 34px 24px; }
 		.process-grid .runway, .process-grid .midjourney, .process-grid .stable-diffusion { padding-top: 0; }
 		.process-grid .stable-diffusion { grid-column: 2; }
-		.closing { align-items: start; flex-direction: column; }
 	}
 	@media (max-width: 520px) {
 		.film { grid-template-columns: 1fr; gap: 20px; }

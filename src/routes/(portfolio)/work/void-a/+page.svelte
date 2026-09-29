@@ -57,7 +57,7 @@
 				<h1>VOID-a</h1>
 				<p class="subtitle" lang="ko">보이다</p>
 				<p class="format">Interactive audiovisual installation</p>
-				<p class="opening-details">Dual-display real-time visuals · Viewer tracking<br />Custom parametric directional speaker · 2023</p>
+				<p class="opening-details">Dual-display real-time visuals · Viewer tracking<br />{' '}Custom parametric directional speaker · 2023</p>
 				<p class="play-note">Play with sound.<br />Around 4–6 seconds, a passerby crosses the speaker’s path and the sound briefly drops.</p>
 			</div>
 			<figure class="primary-media">

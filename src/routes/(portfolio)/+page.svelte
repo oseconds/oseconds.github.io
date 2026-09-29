@@ -62,24 +62,21 @@
 						<time datetime="2022">2022</time>
 					</div>
 					<p class="entry-type">Robotic Painting / Physical Computing</p>
+					<p class="entry-context">A robotic arm moves a paint-covered ball across a rotating canvas, making this painting.</p>
 					<a class="project-link" href="/work/robot-painting-system">Explore the work <span aria-hidden="true">↗</span></a>
 				</div>
 			</article>
 
 			<article class="work-entry work-entry--gaze">
-				<figure class="gaze-media">
-					<!-- svelte-ignore a11y_media_has_caption: the archived platform copy has no verified caption source -->
-					<video
-						src="/media/portfolio/if-you-gaze/AQOwlujb0Js5kK7GF6DJMSfJF6Uk6m-dKe4LWEVc28KWtZHFd5vE-9IrlkdDSznc8ZK2O37Q6_HlxKOylVnOPHk.mp4"
-						poster="/media/portfolio/if-you-gaze/496626927_3520912781377923_7866999277964543427_n.jpg"
-						aria-label="If you gaze video, an owner-downloaded platform copy"
-						width="426"
-						height="340"
-						controls
-						playsinline
-						preload="none"
-					></video>
-				</figure>
+				<a class="entry-media gaze-media" href="/work/if-you-gaze" aria-label="Explore If you gaze">
+					<img
+						src="/media/portfolio/if-you-gaze/496626927_3520912781377923_7866999277964543427_n.jpg"
+						alt="Horned bull-like form framing a raised arm in the If you gaze Reel cover"
+						width="480"
+						height="384"
+						loading="lazy"
+					/>
+				</a>
 				<div class="entry-details">
 					<p class="entry-index">03 / Moving image</p>
 					<div class="entry-heading">
@@ -183,8 +180,7 @@
 		margin: 0;
 	}
 
-	.entry-media img,
-	.gaze-media video {
+	.entry-media img {
 		display: block;
 		width: 100%;
 		height: auto;
@@ -232,6 +228,13 @@
 		line-height: 1.55;
 	}
 
+	.entry-context {
+		max-width: 39ch;
+		margin: 14px 0 0;
+		font-size: 16px;
+		line-height: 1.5;
+	}
+
 	.project-link {
 		display: inline-block;
 		margin-top: 26px;
@@ -273,11 +276,6 @@
 
 	.gaze-media {
 		width: min(100%, 560px);
-	}
-
-	.gaze-media video {
-		aspect-ratio: 426 / 340;
-		background: #151512;
 	}
 
 	.work-entry--gaze h3 {

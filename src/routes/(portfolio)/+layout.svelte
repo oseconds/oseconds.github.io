@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { page } from '$app/state';
+
 	let { children } = $props();
 </script>
 
@@ -6,10 +8,10 @@
 	<nav aria-label="Portfolio navigation">
 		<a class="home-link" href="/">0seconds</a>
 		<div class="section-links">
-			<a href="/work">Work</a>
-			<a href="/archive">Archive</a>
-			<a href="/live">Live</a>
-			<a href="/info">Info</a>
+			<a href="/work" aria-current={page.url.pathname === '/work' ? 'page' : page.url.pathname.startsWith('/work/') ? 'location' : undefined}>Work</a>
+			<a href="/archive" aria-current={page.url.pathname === '/archive' ? 'page' : undefined}>Archive</a>
+			<a href="/live" aria-current={page.url.pathname === '/live' ? 'page' : undefined}>Live</a>
+			<a href="/info" aria-current={page.url.pathname === '/info' ? 'page' : undefined}>Info</a>
 		</div>
 	</nav>
 </header>
@@ -40,6 +42,10 @@
 
 	.portfolio-header a:hover {
 		text-decoration: underline;
+	}
+
+	.section-links a[aria-current] {
+		font-weight: 600;
 	}
 
 	.portfolio-header a:focus-visible {
