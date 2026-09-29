@@ -97,7 +97,7 @@
 	.process { border-top: 1px solid #c9c8c1; padding: 29px 0 126px; }
 	.process-intro { display: grid; grid-template-columns: .8fr 2.1fr; gap: 36px; align-items: start; margin-bottom: 48px; }
 	.process-intro h2 { margin: 0; }
-	.process-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: start; gap: clamp(14px, 1.6vw, 24px); }
+	.process-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: end; gap: clamp(14px, 1.6vw, 24px); }
 	.process-grid figure { min-width: 0; }
 	.process-grid img { width: 100%; height: auto; }
 	.process-grid figcaption { display: flex; gap: 8px; line-height: 1.45; }
@@ -114,7 +114,7 @@
 		.film-note { align-self: center; }
 		.process-intro { grid-template-columns: 1fr 1fr; gap: 18px 26px; margin-bottom: 38px; }
 		.process-intro .section-index { grid-column: 1 / -1; }
-		.process-grid { grid-template-columns: 1fr 1fr; gap: 34px 24px; }
+		.process-grid { grid-template-columns: 1fr 1fr; align-items: start; gap: 34px 24px; }
 	}
 	@media (max-width: 520px) {
 		.film { grid-template-columns: 1fr; gap: 20px; }
