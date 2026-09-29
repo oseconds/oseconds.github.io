@@ -2,7 +2,7 @@
 	<title>0seconds</title>
 	<meta
 		name="description"
-		content="0seconds is an audiovisual artist and creative technologist working across moving image, sound, realtime systems, generative processes, and interactive media."
+		content="0seconds is an audiovisual artist and creative technologist working across visuals, sound, realtime systems, generative processes, and interactive media."
 	/>
 </svelte:head>
 
@@ -13,7 +13,7 @@
 			<p class="discipline">Audiovisual Artist / Creative Technologist</p>
 		</div>
 		<p class="introduction-copy">
-			0seconds is an audiovisual artist and creative technologist working across moving image, sound,
+			0seconds is an audiovisual artist and creative technologist working across visuals, sound,
 			realtime systems, generative processes, and interactive media.
 		</p>
 	</header>
@@ -26,10 +26,10 @@
 
 		<div class="work-sequence">
 			<article class="work-entry work-entry--void">
-				<a class="entry-media void-media" href="/work/void-a" aria-label="Explore VOID-A">
+				<a class="entry-media void-media" href="/work/void-a" aria-label="Explore VOID-a">
 					<img
 						src="/media/portfolio/void-a/void-a-primary-poster.jpg"
-						alt="VOID-A installation with an eye-like form across two displays"
+						alt="VOID-a installation with an eye-like form across two displays"
 						width="720"
 						height="900"
 					/>
@@ -37,33 +37,11 @@
 				<div class="entry-details">
 					<p class="entry-index">01 / Installation</p>
 					<div class="entry-heading">
-						<h3>VOID-A</h3>
+						<h3>VOID-a</h3>
 						<time datetime="2023">2023</time>
 					</div>
 					<p class="entry-type">Interactive Installation / Realtime Visuals / Directional Sound</p>
-					<a class="project-link" href="/work/void-a">Explore VOID-A <span aria-hidden="true">↗</span></a>
-				</div>
-			</article>
-
-			<article class="work-entry work-entry--robot">
-				<a class="entry-media robot-media" href="/work/robot-painting-system" aria-label="Explore Robot Painting System">
-					<img
-						src="/media/portfolio/robot-painting-system/image4.jpg"
-						alt="Colorful painting produced by the robot painting system"
-						width="1416"
-						height="1374"
-						loading="lazy"
-					/>
-				</a>
-				<div class="entry-details robot-details">
-					<p class="entry-index">02 / Physical computing</p>
-					<div class="entry-heading">
-						<h3>Robot Painting System</h3>
-						<time datetime="2022">2022</time>
-					</div>
-					<p class="entry-type">Robotic Painting / Physical Computing</p>
-					<p class="entry-context">A robotic arm moves a paint-covered ball across a rotating canvas, making this painting.</p>
-					<a class="project-link" href="/work/robot-painting-system">Explore the work <span aria-hidden="true">↗</span></a>
+					<a class="project-link" href="/work/void-a">Explore VOID-a <span aria-hidden="true">↗</span></a>
 				</div>
 			</article>
 
@@ -78,13 +56,35 @@
 					/>
 				</a>
 				<div class="entry-details">
-					<p class="entry-index">03 / Moving image</p>
+					<p class="entry-index">02 / Video</p>
 					<div class="entry-heading">
 						<h3>If you gaze</h3>
 						<time datetime="2022">2022</time>
 					</div>
-					<p class="entry-type">Moving Image / Generative AI / Sound</p>
+					<p class="entry-type">Video / Generative Imagery / Sound</p>
 					<a class="project-link" href="/work/if-you-gaze">Explore the work <span aria-hidden="true">↗</span></a>
+				</div>
+			</article>
+
+			<article class="work-entry work-entry--robot">
+				<a class="entry-media robot-media" href="/work/robot-painting-system" aria-label="Explore Robot Painting System">
+					<img
+						src="/media/portfolio/robot-painting-system/image16.jpg"
+						alt="Paint-covered robotic arm beside its wired mechanism, ball, and painted surface"
+						width="2048"
+						height="1536"
+						loading="lazy"
+					/>
+				</a>
+				<div class="entry-details robot-details">
+					<p class="entry-index">03 / Physical computing</p>
+					<div class="entry-heading">
+						<h3>Robot Painting System</h3>
+						<time datetime="2022">2022</time>
+					</div>
+					<p class="entry-type">Robotic Painting / Physical Computing</p>
+					<p class="entry-context">A robotic arm moves a paint-covered ball across a rotating canvas, turning mechanical motion into a physical painting.</p>
+					<a class="project-link" href="/work/robot-painting-system">Explore the work <span aria-hidden="true">↗</span></a>
 				</div>
 			</article>
 		</div>
@@ -200,10 +200,9 @@
 
 	.entry-heading {
 		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-		align-items: baseline;
-		gap: 8px 20px;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 10px;
 	}
 
 	.entry-heading h3 {
@@ -249,19 +248,15 @@
 	}
 
 	.work-entry--robot {
-		grid-template-columns: minmax(250px, 0.78fr) minmax(0, 1.22fr);
+		grid-template-columns: minmax(0, 1.22fr) minmax(250px, 0.78fr);
 	}
 
 	.robot-media {
-		grid-column: 2;
-		grid-row: 1;
 		width: min(100%, 720px);
-		justify-self: end;
+		justify-self: start;
 	}
 
 	.robot-details {
-		grid-column: 1;
-		grid-row: 1;
 		padding-bottom: clamp(0px, 4vw, 60px);
 	}
 
@@ -271,11 +266,19 @@
 	}
 
 	.work-entry--gaze {
-		grid-template-columns: minmax(0, 1.05fr) minmax(250px, 0.95fr);
+		grid-template-columns: minmax(250px, 0.95fr) minmax(0, 1.05fr);
 	}
 
 	.gaze-media {
+		grid-column: 2;
+		grid-row: 1;
 		width: min(100%, 560px);
+		justify-self: end;
+	}
+
+	.work-entry--gaze .entry-details {
+		grid-column: 1;
+		grid-row: 1;
 	}
 
 	.work-entry--gaze h3 {
@@ -317,14 +320,14 @@
 			gap: 25px;
 		}
 
-		.robot-media,
-		.robot-details {
+		.gaze-media,
+		.work-entry--gaze .entry-details {
 			grid-column: auto;
 			grid-row: auto;
 		}
 
 		.robot-media {
-			justify-self: end;
+			justify-self: start;
 			width: min(86%, 580px);
 		}
 
@@ -338,6 +341,7 @@
 
 		.gaze-media {
 			width: min(92%, 560px);
+			justify-self: end;
 		}
 
 		.entry-index {
@@ -371,11 +375,11 @@
 		}
 
 		.robot-media {
-			width: 100%;
+			width: 86%;
 		}
 
 		.gaze-media {
-			width: 100%;
+			width: 92%;
 		}
 	}
 </style>

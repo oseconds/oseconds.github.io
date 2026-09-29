@@ -2,7 +2,7 @@
 	<title>Info — 0seconds</title>
 	<meta
 		name="description"
-		content="About 0seconds, selected projects, live audiovisual practice, and tools."
+		content="About 0seconds, selected works, live audiovisual practice, and tools."
 	/>
 </svelte:head>
 
@@ -13,7 +13,7 @@
 		<h2 id="about-title">About</h2>
 		<div class="about-copy">
 			<p>
-				0seconds is an audiovisual artist and creative technologist working across moving image, sound,
+				0seconds is an audiovisual artist and creative technologist working across visuals, sound,
 				realtime systems, generative processes, and interactive media.
 			</p>
 			<p>
@@ -30,25 +30,20 @@
 	</section>
 
 	<div class="info-sections">
-		<section class="info-section" aria-labelledby="selected-projects-title">
-			<h2 id="selected-projects-title">Selected Projects</h2>
+		<section class="info-section" aria-labelledby="selected-works-title">
+			<h2 id="selected-works-title">Selected Works</h2>
 			<ul class="work-records">
 				<li>
 					<time datetime="2023">2023</time>
-					<a href="/work/void-a">VOID-A</a>
+					<a href="/work/void-a">VOID-a</a>
 				</li>
-			</ul>
-		</section>
-
-		<section class="info-section" aria-labelledby="selected-contributions-title">
-			<h2 id="selected-contributions-title">Selected Contributions</h2>
-			<ul class="work-records">
 				<li>
-					<time datetime="2026">2026</time>
-					<div>
-						<span>OUMTT — 인간전시 空</span>
-						<p class="record-detail">Media video production for STUDIO ARTECH</p>
-					</div>
+					<time datetime="2022">2022</time>
+					<a href="/work/if-you-gaze">If you gaze</a>
+				</li>
+				<li>
+					<time datetime="2022">2022</time>
+					<a href="/work/robot-painting-system">Robot Painting System</a>
 				</li>
 			</ul>
 		</section>

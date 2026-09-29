@@ -1,6 +1,6 @@
 <svelte:head>
 	<title>Work — 0seconds</title>
-	<meta name="description" content="Selected work by 0seconds across installation, robotic painting, and moving image." />
+	<meta name="description" content="Selected work by 0seconds across installation, video, and robotic painting." />
 </svelte:head>
 
 <main class="work-page">
@@ -9,49 +9,30 @@
 			<p class="eyebrow">Selected authored works</p>
 			<h1>Work</h1>
 		</div>
-		<p>Moving image, physical systems, and installation.</p>
+		<p>Installation, video, and physical systems.</p>
 	</header>
 
 	<section class="work-list" aria-label="Selected works">
 		<article class="work-item work-item--void">
 			<div class="work-number"><span>01</span><time datetime="2023">2023</time></div>
-			<a class="work-visual" href="/work/void-a" aria-label="View VOID-A">
+			<a class="work-visual" href="/work/void-a" aria-label="View VOID-a">
 				<img
 					src="/media/portfolio/void-a/void-a-primary-poster.jpg"
-					alt="VOID-A installation with an eye-like form across two displays"
+					alt="VOID-a installation with an eye-like form across two displays"
 					width="720"
 					height="900"
 				/>
 			</a>
 			<div class="work-copy">
-				<h2><a href="/work/void-a">VOID-A</a></h2>
+				<h2><a href="/work/void-a">VOID-a</a></h2>
 				<p>Interactive Installation / Realtime Visuals / Directional Sound</p>
 				<p class="work-description">Viewer tracking shifts the realtime visual viewpoint while a directional speaker shapes how sound is heard.</p>
 				<a class="work-link" href="/work/void-a">View project <span aria-hidden="true">↗</span></a>
 			</div>
 		</article>
 
-		<article class="work-item work-item--robot">
-			<div class="work-number"><span>02</span><time datetime="2022">2022</time></div>
-			<a class="work-visual" href="/work/robot-painting-system" aria-label="View Robot Painting System">
-				<img
-					src="/media/portfolio/robot-painting-system/image4.jpg"
-					alt="Colorful painting produced by the robot painting system"
-					width="1416"
-					height="1374"
-					loading="lazy"
-				/>
-			</a>
-			<div class="work-copy">
-				<h2><a href="/work/robot-painting-system">Robot Painting System</a></h2>
-				<p>Robotic Painting / Physical Computing</p>
-				<p class="work-description">A robotic arm moves a paint-covered ball across a rotating canvas, translating mechanical motion into a physical painting.</p>
-				<a class="work-link" href="/work/robot-painting-system">View project <span aria-hidden="true">↗</span></a>
-			</div>
-		</article>
-
 		<article class="work-item work-item--gaze">
-			<div class="work-number"><span>03</span><time datetime="2022">2022</time></div>
+			<div class="work-number"><span>02</span><time datetime="2022">2022</time></div>
 			<a class="work-visual" href="/work/if-you-gaze" aria-label="View If you gaze">
 				<img
 					src="/media/portfolio/if-you-gaze/496626927_3520912781377923_7866999277964543427_n.jpg"
@@ -63,9 +44,28 @@
 			</a>
 			<div class="work-copy">
 				<h2><a href="/work/if-you-gaze">If you gaze</a></h2>
-				<p>Moving Image / Generative AI / Sound</p>
-				<p class="work-description">Filmed movement and generated imagery are composited into a shifting moving-image portrait with sound.</p>
+				<p>Video / Generative Imagery / Sound</p>
+				<p class="work-description">Filmed movement and generated imagery are composited into a shifting audiovisual portrait.</p>
 				<a class="work-link" href="/work/if-you-gaze">View project <span aria-hidden="true">↗</span></a>
+			</div>
+		</article>
+
+		<article class="work-item work-item--robot">
+			<div class="work-number"><span>03</span><time datetime="2022">2022</time></div>
+			<a class="work-visual" href="/work/robot-painting-system" aria-label="View Robot Painting System">
+				<img
+					src="/media/portfolio/robot-painting-system/image16.jpg"
+					alt="Paint-covered robotic arm beside its wired mechanism, ball, and painted surface"
+					width="2048"
+					height="1536"
+					loading="lazy"
+				/>
+			</a>
+			<div class="work-copy">
+				<h2><a href="/work/robot-painting-system">Robot Painting System</a></h2>
+				<p>Robotic Painting / Physical Computing</p>
+				<p class="work-description">A robotic arm moves a paint-covered ball across a rotating canvas, translating mechanical motion into a physical painting.</p>
+				<a class="work-link" href="/work/robot-painting-system">View project <span aria-hidden="true">↗</span></a>
 			</div>
 		</article>
 	</section>
@@ -206,15 +206,7 @@
 	}
 
 	.work-item--robot .work-visual {
-		grid-column: 3;
-		grid-row: 1;
-		width: min(100%, 620px);
-		justify-self: end;
-	}
-
-	.work-item--robot .work-copy {
-		grid-column: 2;
-		grid-row: 1;
+		width: min(100%, 540px);
 	}
 
 	.work-item--robot .work-copy h2 {
@@ -252,15 +244,13 @@
 			grid-row: 1 / 3;
 		}
 
-		.work-visual,
-		.work-item--robot .work-visual {
+		.work-visual {
 			grid-column: 2;
 			grid-row: 1;
 			justify-self: start;
 		}
 
-		.work-copy,
-		.work-item--robot .work-copy {
+		.work-copy {
 			grid-column: 2;
 			grid-row: 2;
 		}
@@ -271,7 +261,6 @@
 
 		.work-item--robot .work-visual {
 			width: min(100%, 540px);
-			justify-self: end;
 		}
 
 		.work-item--gaze .work-visual {
@@ -279,7 +268,7 @@
 		}
 	}
 
-	@media (max-width: 480px) {
+	@media (max-width: 520px) {
 		.work-item {
 			grid-template-columns: 1fr;
 			gap: 22px;
@@ -288,9 +277,7 @@
 
 		.work-number,
 		.work-visual,
-		.work-copy,
-		.work-item--robot .work-visual,
-		.work-item--robot .work-copy {
+		.work-copy {
 			grid-column: 1;
 			grid-row: auto;
 		}

@@ -1,13 +1,13 @@
 <svelte:head>
 	<title>If you gaze — 0seconds</title>
-	<meta name="description" content="If you gaze, a 2022 moving-image work combining filmed movement, generated imagery, animation, and sound." />
+	<meta name="description" content="If you gaze, a 2022 video work combining filmed movement, generated imagery, animation, and sound." />
 </svelte:head>
 
 <main class="project gaze-page">
 	<article>
 		<header class="opening">
 			<div class="heading">
-				<p class="eyebrow">2022 <span>·</span> Moving Image / Generative AI / Sound</p>
+				<p class="eyebrow">2022 <span>·</span> Video / Generative Imagery / Sound</p>
 				<h1>If you<br /><em>gaze</em></h1>
 				<p class="intro">A figure changes shape between filmed movement and generated imagery, held together through animation and sound.</p>
 				<p class="inspiration">The 2022 process post names Picasso’s Minotaur series as an inspiration.</p>
@@ -20,7 +20,7 @@
 
 		<section class="film" aria-labelledby="film-title">
 			<div class="film-heading">
-				<p class="section-index">01 / MOVING IMAGE</p>
+				<p class="section-index">01 / VIDEO</p>
 				<h2 id="film-title">A shifting figure,<br />in motion.</h2>
 			</div>
 			<figure class="player">
@@ -47,20 +47,28 @@
 				<h2 id="process-title">Images from different stages</h2>
 			</div>
 			<div class="process-grid">
-				<figure class="runway">
-					<img src="/media/portfolio/if-you-gaze/FB_IMG_1790604785288.jpg" alt="Archived process screenshot showing a filmed figure against green screen in the Runway background-removal stage" width="2048" height="1210" loading="lazy" />
-					<figcaption><span>01</span> Runway · green-screen removal</figcaption>
+				<figure>
+					<img src="/media/portfolio/if-you-gaze/process-01.jpg" alt="Filmed figure raising an arm against a green background" width="2040" height="1148" loading="lazy" />
+					<figcaption><span>01</span> Runway · background removal</figcaption>
 				</figure>
-				<figure class="midjourney">
-					<img src="/media/portfolio/if-you-gaze/FB_IMG_1790604788297.jpg" alt="Archived process screenshot showing generated imagery integrated with a figure" width="1542" height="1610" loading="lazy" />
+				<figure>
+					<img src="/media/portfolio/if-you-gaze/process-02.jpg" alt="Raised arms integrated with generated horns and a pale background" width="1530" height="1530" loading="lazy" />
 					<figcaption><span>02</span> Midjourney · image integration</figcaption>
 				</figure>
-				<figure class="stable-diffusion">
-					<img src="/media/portfolio/if-you-gaze/FB_IMG_1790604790780.jpg" alt="Archived process screenshot showing a figure at the Stable Diffusion img2img stage" width="1036" height="1104" loading="lazy" />
-					<figcaption><span>03</span> Stable Diffusion · image to image</figcaption>
+				<figure>
+					<img src="/media/portfolio/if-you-gaze/process-03.jpg" alt="Generated gray figure with red details and transformed facial features" width="1024" height="1024" loading="lazy" />
+					<figcaption><span>03</span> Stable Diffusion · img2img</figcaption>
+				</figure>
+				<figure>
+					<img src="/media/portfolio/if-you-gaze/process-04.jpg" alt="Figure with a red heart over the head and outlined dark clothing" width="1530" height="1530" loading="lazy" />
+					<figcaption><span>04</span> Composite / color stage</figcaption>
+				</figure>
+				<figure>
+					<img src="/media/portfolio/if-you-gaze/process-05.jpg" alt="Later red creature-like transformation of the figure" width="1024" height="1024" loading="lazy" />
+					<figcaption><span>05</span> Later transformation</figcaption>
 				</figure>
 			</div>
-			<p class="process-source">Source note: These three process images come from separate archived feed cards; they were not attached directly to the October 6, 2022 Facebook text post.</p>
+			<p class="process-source">Archived process screenshots from the 2022 workflow.</p>
 		</section>
 	</article>
 </main>
@@ -87,16 +95,14 @@
 	.project a { color: var(--ink); text-decoration-thickness: 1px; text-underline-offset: 4px; }
 	.project a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
 	.process { border-top: 1px solid #c9c8c1; padding: 29px 0 126px; }
-	.process-intro { display: grid; grid-template-columns: .8fr 2.1fr; gap: 36px; align-items: start; margin-bottom: 58px; }
+	.process-intro { display: grid; grid-template-columns: .8fr 2.1fr; gap: 36px; align-items: start; margin-bottom: 48px; }
 	.process-intro h2 { margin: 0; }
-	.process-grid { display: grid; grid-template-columns: 1.05fr .78fr 1fr; align-items: start; gap: clamp(20px, 4vw, 58px); }
+	.process-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: start; gap: clamp(14px, 1.6vw, 24px); }
+	.process-grid figure { min-width: 0; }
 	.process-grid img { width: 100%; height: auto; }
-	.process-grid .runway { padding-top: 66px; }
-	.process-grid .midjourney { padding-top: 0; }
-	.process-grid .stable-diffusion { padding-top: 112px; }
-	.process-grid figcaption { display: flex; gap: 11px; }
-	.process-grid figcaption span { color: var(--ink); font-variant-numeric: tabular-nums; }
-	.process-source { max-width: 470px; margin: 38px 0 0 auto; color: var(--muted); font-size: 12px; line-height: 1.55; }
+	.process-grid figcaption { display: flex; gap: 8px; line-height: 1.45; }
+	.process-grid figcaption span { flex: none; color: var(--ink); font-variant-numeric: tabular-nums; }
+	.process-source { margin: 34px 0 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
 	@media (max-width: 850px) {
 		.project { width: min(100% - 36px, 660px); padding-top: 12px; }
 		.opening { grid-template-columns: 1fr; gap: 42px; padding: 36px 0 88px; }
@@ -109,16 +115,14 @@
 		.process-intro { grid-template-columns: 1fr 1fr; gap: 18px 26px; margin-bottom: 38px; }
 		.process-intro .section-index { grid-column: 1 / -1; }
 		.process-grid { grid-template-columns: 1fr 1fr; gap: 34px 24px; }
-		.process-grid .runway, .process-grid .midjourney, .process-grid .stable-diffusion { padding-top: 0; }
-		.process-grid .stable-diffusion { grid-column: 2; }
 	}
 	@media (max-width: 520px) {
 		.film { grid-template-columns: 1fr; gap: 20px; }
 		.film-heading, .process-intro .section-index { grid-column: auto; }
 		.film-note { max-width: 380px; }
 		.process-intro { grid-template-columns: 1fr; }
-		.process-grid { grid-template-columns: 1fr; gap: 32px; }
-		.process-grid .stable-diffusion { grid-column: auto; width: 84%; margin-left: auto; }
+		.process-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 16px; }
+		.process-grid figure:first-child { grid-column: 1 / -1; }
 		.process { padding-bottom: 84px; }
 	}
 </style>
