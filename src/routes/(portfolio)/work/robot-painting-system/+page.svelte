@@ -1,66 +1,52 @@
 <svelte:head>
 	<title>Robot Painting System — 0seconds</title>
-	<meta name="description" content="A 2022 robotic painting and physical computing project developed through an iterative process of making and testing." />
+	<meta name="description" content="A 2022 robotic painting project translating hand-shaped movement into physical traces through a handmade robot, paint, and a rotating canvas." />
 </svelte:head>
 
 <main class="project robot-page">
 	<article>
 		<header class="intro">
-			<div class="intro-copy">
-				<p class="eyebrow">2022 <span>·</span> Robotic Painting / Physical Computing</p>
-				<h1>Robot<br />Painting<br />System</h1>
-				<p class="dek">A hand sets the arm’s path; the robot repeats it in paint.</p>
-				<p class="title-note">Portfolio working title</p>
-			</div>
-			<figure class="result">
-				<img src="/media/portfolio/robot-painting-system/image4.jpg" alt="Abstract painting made by the robotic painting system, with rolling arcs and layered marks in red, blue, yellow, and black" width="1416" height="1374" fetchpriority="high" />
-				<figcaption>The resulting painting</figcaption>
-			</figure>
+			<p class="eyebrow">2022 <span>·</span> Robotic Painting / Physical Computing</p>
+			<h1>Robot Painting System</h1>
+			<p class="dek">A hand sets the arm’s path; the robot repeats it in paint.</p>
+			<p class="title-note">Portfolio working title</p>
 		</header>
 
-		<section class="idea" aria-labelledby="idea-title">
-			<p class="section-index">01 / THE IDEA</p>
-			<div>
-				<h2 id="idea-title">From repetition to a painted trace</h2>
-				<p>The project began with the idea of a robot repeatedly lifting a ball uphill, returning it to its starting point, and beginning again. It shifted toward a painting system: a ball carrying paint would travel across a tilted canvas, leaving a mark as the canvas turned.</p>
-				<p>The proposed controls let a visitor choose a color and decide when to act; the available record does not establish how fully those inputs worked during the exhibition.</p>
+		<figure class="operation">
+			<iframe
+				src="https://www.youtube.com/embed/s1nOQkkjCUI"
+				title="Robot Painting System — operation documentation"
+				width="960"
+				height="720"
+				allow="encrypted-media; picture-in-picture; fullscreen"
+				referrerpolicy="strict-origin-when-cross-origin"
+				allowfullscreen
+			></iframe>
+			<figcaption>
+				<span>Operation documentation · 24 seconds</span>
+				<a href="https://youtu.be/s1nOQkkjCUI" target="_blank" rel="noreferrer">Watch on YouTube <span aria-hidden="true">↗</span></a>
+			</figcaption>
+		</figure>
+
+		<section class="movement" aria-labelledby="movement-title">
+			<figure>
+				<img src="/media/portfolio/robot-painting-system/image22.jpg" alt="A hand holding the wooden potentiometer dummy arm beside the wired robotic arm" width="2048" height="1536" loading="lazy" />
+				<figcaption>A wooden dummy arm alongside the wired robot</figcaption>
+			</figure>
+			<div class="movement-copy">
+				<h2 id="movement-title">Shaping the movement</h2>
+				<p>Inspired by Sisyphus, the project began with the idea of a robot repeatedly lifting a ball uphill. It developed into a painting system, using a paint-covered ball and a rotating canvas to turn repetition into a physical trace.</p>
+				<p>The wooden robot was built around Arduino and servo motors. A separate dummy arm fitted with potentiometers let its movement be shaped by hand. The work note records how those angle values were captured and used to reproduce movement on the actual arm.</p>
 			</div>
 		</section>
 
-		<section class="build" aria-labelledby="build-title">
-			<div class="section-head">
-				<p class="section-index">02 / BUILDING A MOVEMENT</p>
-				<h2 id="build-title">A hand guided the arm before the arm moved on its own.</h2>
+		<section class="result" aria-labelledby="result-title">
+			<div class="result-copy">
+				<h2 id="result-title">A record of movement, made visible</h2>
+				<p>Paint carried by the ball leaves overlapping marks on the surface. The resulting painting holds the traces of the system and its maker.</p>
 			</div>
-			<div class="pair">
-				<figure>
-					<img src="/media/portfolio/robot-painting-system/image22.jpg" alt="Hand-guided wooden dummy arm positioned beside the wired robotic arm" width="2048" height="1536" loading="lazy" />
-					<figcaption>A wooden dummy arm alongside the wired robot</figcaption>
-				</figure>
-				<div class="build-copy">
-					<p>The arm was built around an Arduino and servo motors. To shape its path, a wooden dummy arm fitted with potentiometers could be moved by hand; the recorded angles could then guide the actual arm.</p>
-					<p>The project notes document construction, movement recording, and troubleshooting, including a servo failure on the exhibition day.</p>
-				</div>
-			</div>
-			<figure class="wide-image">
-				<img src="/media/portfolio/robot-painting-system/image19.jpg" alt="Wooden frame and articulated robotic arm under construction" width="1536" height="2048" loading="lazy" />
-				<figcaption>Constructing the arm and its frame</figcaption>
-			</figure>
-			<figure class="setup-image">
-				<img src="/media/portfolio/robot-painting-system/image17.jpg" alt="Painting system setup with robot, wiring, paint containers, and a marked surface" width="2048" height="1536" loading="lazy" />
-				<figcaption>Robot and painting setup</figcaption>
-			</figure>
-		</section>
-
-		<section class="moving" aria-labelledby="moving-title">
-			<div>
-				<p class="section-index">03 / THE RESULT</p>
-				<h2 id="moving-title">A record of movement, made visible</h2>
-				<p>The painting records the paths made as the robot carried paint across the surface. The project note identifies this image as the work produced by the system.</p>
-				<a class="video-link" href="https://youtu.be/s1nOQkkjCUI" target="_blank" rel="noreferrer">Watch the operation and result on YouTube <span aria-hidden="true">↗</span></a>
-			</div>
-			<figure class="final-image">
-				<img src="/media/portfolio/robot-painting-system/image4.jpg" alt="Resulting painting, showing overlapping circular and diagonal paint paths" width="1416" height="1374" loading="lazy" />
+			<figure>
+				<img src="/media/portfolio/robot-painting-system/image4.jpg" alt="Resulting painting with a paint-covered ball and overlapping trails of red, blue, yellow, white, and dark paint" width="1416" height="1374" loading="lazy" />
 				<figcaption>The painting made by the robot and its maker</figcaption>
 			</figure>
 		</section>
@@ -68,45 +54,35 @@
 </main>
 
 <style>
-	.project { --ink: #181815; --muted: #74736d; color: var(--ink); width: min(100% - 64px, 1320px); margin: 0 auto; padding: 28px 0 120px; font: 16px/1.55 system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
-	figure { margin: 0; }
+	.project { --ink: #181815; --muted: #74736d; color: var(--ink); width: min(100% - 64px, 1080px); margin: 0 auto; padding: 48px 0 112px; font: 16px/1.55 system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+	figure { margin: 0; min-width: 0; }
 	img { display: block; width: 100%; height: auto; }
-	figcaption { margin-top: 9px; color: var(--muted); font-size: 12px; letter-spacing: .015em; }
-	.intro { display: grid; grid-template-columns: .78fr 1.22fr; gap: clamp(40px, 8vw, 120px); align-items: center; padding: 38px 0 128px; }
-	.eyebrow, .section-index { margin: 0; color: var(--muted); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+	figcaption { margin-top: 10px; color: var(--muted); font-size: 12px; letter-spacing: .015em; }
+	.intro { padding-bottom: 36px; }
+	.eyebrow { margin: 0; color: var(--muted); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
 	.eyebrow span { padding: 0 5px; }
-	h1 { margin: 35px 0 28px; font-size: clamp(52px, 8vw, 116px); line-height: .91; font-weight: 500; letter-spacing: -.075em; }
-	.dek { max-width: 330px; margin: 0; font-size: clamp(18px, 2vw, 23px); line-height: 1.35; letter-spacing: -.025em; }
-	.title-note { margin: 30px 0 0; color: var(--muted); font-size: 12px; }
-	.result img { max-height: 760px; object-fit: contain; }
-	.idea { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; border-top: 1px solid #c9c8c1; padding: 30px 0 136px; }
-	.idea h2, .moving h2 { margin: 0 0 24px; font-size: clamp(30px, 4vw, 54px); line-height: 1.03; font-weight: 450; letter-spacing: -.055em; }
-	.idea div { max-width: 700px; }
-	.idea div p, .build-copy p, .moving p:not(.section-index) { max-width: 620px; color: #4d4d47; }
-	.section-head { display: grid; grid-template-columns: 1fr 1.3fr; align-items: start; gap: 40px; margin-bottom: 32px; }
-	.section-head h2 { max-width: 660px; margin: 0; font-size: clamp(32px, 4.6vw, 66px); line-height: 1.02; font-weight: 450; letter-spacing: -.055em; }
-	.wide-image { width: min(52%, 640px); margin-left: auto; }
-	.pair { display: grid; grid-template-columns: 1.2fr .8fr; align-items: center; gap: clamp(32px, 7vw, 100px); padding: 8px 0 84px; }
-	.pair img { aspect-ratio: 4 / 3; object-fit: cover; }
-	.build-copy { max-width: 390px; }
-	.setup-image { width: 61%; margin: 60px auto 140px 7%; }
-	.setup-image img { aspect-ratio: 4 / 3; object-fit: cover; }
-	.moving { display: grid; grid-template-columns: .8fr 1.2fr; align-items: center; gap: clamp(40px, 9vw, 128px); border-top: 1px solid #c9c8c1; padding-top: 32px; }
-	.moving h2 { margin-top: 42px; }
-	.video-link { display: inline-flex; gap: 12px; margin-top: 26px; color: inherit; font-size: 13px; text-decoration-thickness: 1px; text-underline-offset: 4px; }
-	.video-link:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
-	.final-image img { max-height: 700px; object-fit: contain; }
+	h1 { margin: 22px 0 18px; font-size: clamp(42px, 6.4vw, 80px); line-height: 1; font-weight: 500; letter-spacing: -.065em; text-wrap: balance; }
+	.dek { max-width: 620px; margin: 0; font-size: clamp(18px, 2vw, 23px); line-height: 1.35; letter-spacing: -.025em; }
+	.title-note { margin: 16px 0 0; color: var(--muted); font-size: 12px; }
+	.operation { width: min(100%, 880px); margin-inline: auto; }
+	.operation iframe { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; border: 0; background: #181815; }
+	.operation figcaption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 20px; }
+	a { color: inherit; text-underline-offset: 4px; }
+	a:focus-visible, iframe:focus-visible { outline: 2px solid var(--ink); outline-offset: 5px; }
+	h2 { margin: 0 0 22px; font-size: clamp(30px, 3.4vw, 46px); line-height: 1.06; font-weight: 450; letter-spacing: -.05em; }
+	.movement { display: grid; grid-template-columns: 1.15fr 1fr; align-items: center; gap: clamp(32px, 5vw, 72px); margin-top: 88px; }
+	.movement-copy { min-width: 0; }
+	.movement-copy p, .result-copy p { color: #4d4d47; }
+	.movement-copy p:last-child { margin-bottom: 0; }
+	.result { margin-top: 88px; border-top: 1px solid #c9c8c1; padding-top: 30px; }
+	.result-copy { max-width: 620px; margin-bottom: 32px; }
+	.result figure { width: min(100%, 720px); margin-inline: auto; }
 	@media (max-width: 760px) {
-		.project { width: min(100% - 36px, 620px); padding-top: 12px; padding-bottom: 76px; }
-		.intro { grid-template-columns: 1fr; gap: 42px; padding: 36px 0 86px; }
-		h1 { margin: 27px 0 20px; font-size: clamp(58px, 16vw, 92px); }
-		.result { width: 100%; }
-		.idea, .section-head, .moving { grid-template-columns: 1fr; gap: 22px; }
-		.idea { padding-bottom: 90px; }
-		.wide-image, .setup-image { width: 100%; margin-left: 0; }
-		.pair { grid-template-columns: 1fr; gap: 22px; padding: 0 0 54px; }
-		.setup-image { margin: 44px 0 90px; }
-		.moving { padding-top: 26px; }
-		.moving h2 { margin-top: 24px; }
+		.project { width: min(100% - 36px, 620px); padding: 30px 0 76px; }
+		.intro { padding-bottom: 28px; }
+		h1 { margin-top: 20px; font-size: clamp(40px, 10vw, 62px); }
+		.movement { grid-template-columns: minmax(0, 1fr); gap: 26px; margin-top: 56px; }
+		.result { margin-top: 56px; padding-top: 26px; }
+		.result-copy { margin-bottom: 26px; }
 	}
 </style>
