@@ -264,6 +264,89 @@
 </main>
 
 <style>
+    .info-page {
+        --page-muted: #686761;
+        width: min(100% - 48px, 1120px);
+        margin-inline: auto;
+        padding: clamp(40px, 7vw, 100px) 0 120px;
+        color: #171715;
+    }
+
+    .identity-hero {
+        display: grid;
+        grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+        gap: clamp(36px, 8vw, 120px);
+        align-items: start;
+    }
+
+    .identity-hero h1 {
+        margin: 0;
+        font-size: clamp(64px, 10vw, 128px);
+        font-weight: 400;
+        letter-spacing: -0.085em;
+        line-height: 0.88;
+    }
+
+    .identity-statements {
+        display: grid;
+        gap: clamp(28px, 4vw, 48px);
+        padding-top: 8px;
+    }
+
+    .identity-statements p {
+        max-width: 440px;
+        margin: 0;
+        font-size: clamp(18px, 2vw, 26px);
+        line-height: 1.45;
+    }
+
+    .identity-statements span {
+        display: block;
+    }
+
+    .info-sections {
+        display: grid;
+        gap: clamp(64px, 9vw, 112px);
+        margin-top: clamp(96px, 14vw, 176px);
+    }
+
+    .info-section {
+        display: grid;
+        grid-template-columns: minmax(170px, 240px) minmax(0, 1fr);
+        column-gap: clamp(28px, 6vw, 88px);
+        align-items: start;
+    }
+
+    .info-section h2 {
+        margin: 4px 0 0;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.045em;
+        line-height: 1.4;
+    }
+
+    .records {
+        display: grid;
+        gap: 28px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .records li {
+        display: grid;
+        grid-template-columns: 68px minmax(0, 1fr);
+        gap: 18px;
+        align-items: baseline;
+    }
+
+    .year {
+        color: var(--page-muted);
+        font-size: 13px;
+        font-variant-numeric: tabular-nums;
+        line-height: 1.55;
+    }
+
     .record-title,
     .record-detail {
         margin: 0;
