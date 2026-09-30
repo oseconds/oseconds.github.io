@@ -3,19 +3,18 @@
 
     <meta
         name="description"
-        content="0seconds — audiovisual artist & creative technologist across visuals and sound."
+        content="0seconds — new media artist working across visuals, sound, AI, and interactive systems."
     />
 
     <link rel="canonical" href="https://oseconds.github.io/" />
 
-    <meta
-        property="og:title"
-        content="0seconds — Audiovisual Artist & Creative Technologist"
-    />
+    <meta property="og:title" content="0seconds — New Media Artist" />
+
     <meta
         property="og:description"
-        content="0seconds — audiovisual artist & creative technologist across visuals and sound."
+        content="0seconds — new media artist working across visuals, sound, AI, and interactive systems."
     />
+    
     <meta property="og:url" content="https://oseconds.github.io/" />
     <meta property="og:type" content="website" />
 </svelte:head>
