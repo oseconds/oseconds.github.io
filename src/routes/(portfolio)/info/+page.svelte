@@ -23,13 +23,13 @@
         <h1 id="identity-title">0seconds</h1>
 
         <div class="identity-statements">
-            <p>
-                is an artist working across
+            <p class="artist-statement">
+                Artist working across
                 <span>sound, image, and moving media.</span>
             </p>
-
-            <p>
-                is a developer working with
+        
+            <p class="developer-statement">
+                Developer working with
                 <span>AI and interactive systems.</span>
             </p>
         </div>
@@ -274,12 +274,17 @@
 
     .identity-hero {
         display: grid;
-        grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
-        gap: clamp(36px, 8vw, 120px);
+        grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+        grid-template-areas:
+            "name artist"
+            "developer developer";
+        column-gap: clamp(32px, 5vw, 72px);
+        row-gap: clamp(22px, 3vw, 38px);
         align-items: start;
     }
 
     .identity-hero h1 {
+        grid-area: name;
         margin: 0;
         font-size: clamp(64px, 10vw, 128px);
         font-weight: 400;
@@ -288,16 +293,35 @@
     }
 
     .identity-statements {
-        display: grid;
-        gap: clamp(28px, 4vw, 48px);
-        padding-top: 8px;
+        display: contents;
     }
 
     .identity-statements p {
-        max-width: 440px;
         margin: 0;
         font-size: clamp(18px, 2vw, 26px);
         line-height: 1.45;
+    }
+
+    .identity-statements .artist-statement {
+        grid-area: artist;
+        align-self: end;
+        margin: 0 0 -7px;
+        margin-left: -20px;
+        /* margin-top: clamp(20px, 2vw, 20px); */
+    }
+
+    .identity-statements .artist-statement span {
+        margin-left: 20px;
+    }
+
+    .identity-statements .developer-statement {
+        grid-area: developer;
+        max-width: 440px;
+        margin-left: 30px;
+    }
+
+    .identity-statements .developer-statement span {
+        margin-left: 20px;
     }
 
     .identity-statements span {
@@ -307,7 +331,7 @@
     .info-sections {
         display: grid;
         gap: clamp(64px, 9vw, 112px);
-        margin-top: clamp(96px, 14vw, 176px);
+        margin-top: clamp(88px, 11vw, 144px);
     }
 
     .info-section {
