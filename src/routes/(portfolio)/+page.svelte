@@ -1,5 +1,5 @@
 <svelte:head>
-    <title>0seconds — Audiovisual Artist & Creative Technologist</title>
+    <title>0seconds — New Media Artist</title>
 
     <meta
         name="description"
