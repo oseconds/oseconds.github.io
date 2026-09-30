@@ -1,9 +1,23 @@
 <svelte:head>
-    <title>0seconds</title>
+    <title>0seconds — Audiovisual Artist & Creative Technologist</title>
+
     <meta
         name="description"
-        content="0seconds is an audiovisual artist and creative technologist working across visuals, sound, realtime systems, generative processes, and interactive media."
+        content="0seconds — audiovisual artist & creative technologist across visuals and sound."
     />
+
+    <link rel="canonical" href="https://oseconds.github.io/" />
+
+    <meta
+        property="og:title"
+        content="0seconds — Audiovisual Artist & Creative Technologist"
+    />
+    <meta
+        property="og:description"
+        content="0seconds — audiovisual artist & creative technologist across visuals and sound."
+    />
+    <meta property="og:url" content="https://oseconds.github.io/" />
+    <meta property="og:type" content="website" />
 </svelte:head>
 
 <main class="home-page">
