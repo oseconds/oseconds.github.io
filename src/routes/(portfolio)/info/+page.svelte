@@ -306,7 +306,7 @@
         grid-area: artist;
         align-self: end;
         margin: 0 0 -7px;
-        margin-left: -20px;
+        margin-left: -50px;
         /* margin-top: clamp(20px, 2vw, 20px); */
     }
 
@@ -317,6 +317,7 @@
     .identity-statements .developer-statement {
         grid-area: developer;
         max-width: 440px;
+        margin-top: -2px;
         margin-left: 30px;
     }
 
