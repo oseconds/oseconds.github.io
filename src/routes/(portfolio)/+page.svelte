@@ -27,9 +27,8 @@
             <p class="discipline">Audiovisual Artist / Creative Technologist</p>
         </div>
         <p class="introduction-copy">
-            0seconds is an audiovisual artist and creative technologist working
-            across visuals, sound, realtime systems, generative processes, and
-            interactive media.
+            Working across visuals, sound, realtime systems, generative
+            processes, and interactive media.
         </p>
     </header>
 
